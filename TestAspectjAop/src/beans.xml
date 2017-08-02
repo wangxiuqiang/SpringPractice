@@ -13,8 +13,9 @@
         <aop:pointcut expression="execution(* com.Book.Book.add())" id="pointcut"/>
         <!-- 配置 切面-->
         <aop:aspect ref="myBook">
-            <aop:before method="before" pointcut-ref="pointcut"/>
-            <aop:after method="after" pointcut-ref="pointcut"/>
+           <!-- <aop:before method="before" pointcut-ref="pointcut"/>
+            <aop:after method="after" pointcut-ref="pointcut"/>-->
+            <aop:around method="around" pointcut-ref="pointcut" />
         </aop:aspect>
 
     </aop:config>
