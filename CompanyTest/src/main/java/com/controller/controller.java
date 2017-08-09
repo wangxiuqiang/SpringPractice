@@ -19,6 +19,7 @@ public class controller {
     }
     @RequestMapping(value = "/join_in")
     public String In( admin admin,Model model) {
+
         if (admin.getName().equals("admin") && admin.getPassword().equals("admin")) {
             return "test";
         }else{
