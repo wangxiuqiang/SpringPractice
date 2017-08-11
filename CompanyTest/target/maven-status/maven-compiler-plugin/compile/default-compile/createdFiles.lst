@@ -1,3 +1,4 @@
 com/controller/controller.class
 com/domain/admin.class
 com/domain/staff.class
+com/service/userService.class

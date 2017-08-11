@@ -7,6 +7,8 @@
           <element id="module-output" name="CompanyTest" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.1.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.glassfish.web:javax.servlet.jsp.jstl:1.2.4" />
           <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:jstl-api:1.2" />
           <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
@@ -21,6 +23,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.2.RELEASE" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.22" />
         </element>
       </element>
       <element id="directory" name="META-INF">
