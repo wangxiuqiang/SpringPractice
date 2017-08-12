@@ -21,20 +21,28 @@ public class userService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public String[] adminJoin(){
+    public String[] adminJoin() {
         String[] JoinIn = new String[2];
-         //String Querysql = "select * from admin";
-        //List list =  jdbcTemplate.queryForList(Querysql);
-       // if(list.size() > 0 && list.isEmpty()){
-        //    return null;
-        //}else {
-            Iterator<admin> it = list.iterator();
-            while (it.hasNext()) {
-                admin a = (admin) it.next();
-                JoinIn[0] = a.getName();
-                JoinIn[1] = a.getPassword();
-           }
-            return JoinIn;
-        //}
+        String Querysql = "select * from admin";
+        try {
+            List list = jdbcTemplate.queryForList(Querysql);
+            System.out.println(list.size());
+            if (list.size() > 0 && !list.isEmpty()) {
+
+
+                Iterator<admin> it = list.iterator();
+                while (it.hasNext()) {
+                    admin a =  it.next();
+                    JoinIn[0] = a.getName();
+                    JoinIn[1] = a.getPassword();
+                }
+                return JoinIn;
+            } else {
+                return null;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

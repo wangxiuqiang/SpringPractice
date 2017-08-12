@@ -2,6 +2,7 @@ package com.controller;
 
 import com.domain.admin;
 import com.service.userService;
+import javafx.print.Printer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +23,9 @@ public class controller {
     @RequestMapping(value = "/join_in")
     public String In( admin admin,Model model) {
         userService in = new userService();
+        try{
         String[] JoinIn = in.adminJoin();
-        if(JoinIn[0].equals(null)||JoinIn[1]==null){
+        if(JoinIn != null){
             return "index";
         }
       else{
@@ -32,6 +34,11 @@ public class controller {
         }else{
             return "index";
         }
+        }
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return "index";
         }
 
     }
