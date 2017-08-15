@@ -19,7 +19,7 @@
           </label> <form:input id = "name" path="name"/></p>
              <p>
              <label for="description">Description:</label>
-             <form:input path="description" id="description"></form:input>
+             <form:input path="description" id="description" />
              </p>
              <p>
              <label for="price" >Price:</label>
@@ -29,7 +29,7 @@
              <p>
              <label for="image">Image:</label>
 
-            <input type="file" id ="image" name="image[0]"/>
+            <input type="file" id ="image"  />
              </p>
              <p id="button">
                  <input type="submit" id="submit" tabindex="4"/>

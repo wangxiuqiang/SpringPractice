@@ -42,6 +42,7 @@ public class Product {
     }
 
     public void setImages(List<MultipartFile> images) {
+
         this.images = images;
     }
 }

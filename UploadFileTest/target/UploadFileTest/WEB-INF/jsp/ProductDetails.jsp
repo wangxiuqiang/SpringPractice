@@ -19,9 +19,9 @@ ProductName:${product.name}
 Description:${product.description}
 Price:${product.price}
 <ol>
-<c:forEach items="${product.images} " var ="image">
-    <li> ${image.originalFilename}
-        <image src="<c:url value="/WEB-INF/images/"/>${image.originalFilename}"/>
+<c:forEach items="${product.images}" var="image">
+    <li> ${image.name}
+        <image src="<c:url value="/WEB-INF/images/"/>${image.name}"/>
     </li>
 </c:forEach>
 </ol>
