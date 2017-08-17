@@ -3,8 +3,10 @@ package com.service;
 import com.domain.admin;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import java.util.*;
 
 /**
  * 用来写那个数据库的操作
@@ -21,22 +23,15 @@ public class userService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public String[] adminJoin() {
-        String[] JoinIn = new String[2];
+    public admin adminJoin() {
+
         String Querysql = "select * from admin";
         try {
-            List list = jdbcTemplate.queryForList(Querysql);
-            System.out.println(list.size());
-            if (list.size() > 0 && !list.isEmpty()) {
+            admin admin = jdbcTemplate.queryForObject(Querysql,new MyRowMapper());
 
+            if (admin != null) {
 
-                Iterator<admin> it = list.iterator();
-                while (it.hasNext()) {
-                    admin a =  it.next();
-                    JoinIn[0] = a.getName();
-                    JoinIn[1] = a.getPassword();
-                }
-                return JoinIn;
+                return admin;
             } else {
                 return null;
             }
@@ -45,4 +40,15 @@ public class userService {
             return null;
         }
     }
+}
+class MyRowMapper implements RowMapper<admin> {
+     public admin mapRow(ResultSet rs, int n) throws SQLException {
+         String name =	rs.getString("name");
+         String password = rs.getString("password");
+
+         admin admin = new admin();
+         admin.setName(name);
+         admin.setPassword(password);
+         return admin;
+     }
 }

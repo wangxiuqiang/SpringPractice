@@ -2,7 +2,9 @@ package com.controller;
 
 import com.domain.admin;
 import com.service.userService;
-import javafx.print.Printer;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,32 +16,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class controller {
 
 
-    @RequestMapping(value="/admin_join")
-    public String adminJoin(admin admin,Model model){
+    @RequestMapping(value="/adminJoin_in")
+    public String adminJoin(Model model){
 
-        model.addAttribute("admin",admin);
+        model.addAttribute("admin",new admin());
         return "index";
     }
     @RequestMapping(value = "/join_in")
     public String In( admin admin,Model model) {
-        userService in = new userService();
-        try{
-        String[] JoinIn = in.adminJoin();
-        if(JoinIn != null){
-            return "index";
-        }
-      else{
-          if (admin.getName().equals(JoinIn[0]) && admin.getPassword().equals(JoinIn[1])) {
-            return "test";
-        }else{
-            return "index";
-        }
-        }
+        ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
+       userService userService = (userService) a.getBean("userService");
+       admin admin1 = userService.adminJoin();
+       if(admin == null){
+           return "index";
+       }
+       else{
+           if(admin1.getName().equals(admin.getName())  && admin1.getPassword().equals(admin.getPassword())){
+               model.addAttribute("admin" ,admin);
+               return "test";
+           }
+           else{
+               return "index";
+           }
+       }
 
-        }catch(Exception e){
-            e.printStackTrace();
-            return "index";
-        }
+
+
 
     }
 }
