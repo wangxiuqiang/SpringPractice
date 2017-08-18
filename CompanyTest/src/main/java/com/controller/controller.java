@@ -7,6 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -15,7 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class controller {
 
-
+    @RequestMapping(value ="/change_view/{id}")
+    public String change(@PathVariable int id , Model model){
+        if(id == 1){
+            return "test";
+        }
+        else{
+            return "index";
+        }
+    }
     @RequestMapping(value="/adminJoin_in")
     public String adminJoin(Model model){
 
@@ -33,15 +42,12 @@ public class controller {
        else{
            if(admin1.getName().equals(admin.getName())  && admin1.getPassword().equals(admin.getPassword())){
                model.addAttribute("admin" ,admin);
-               return "test";
+               return "CompanyShow";
            }
            else{
                return "index";
            }
        }
-
-
-
 
     }
 }
