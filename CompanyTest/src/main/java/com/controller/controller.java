@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.domain.admin;
+import com.domain.department;
+import com.domain.staff;
 import com.service.userService;
 
 import org.springframework.context.ApplicationContext;
@@ -10,20 +12,42 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by wxq on 17-8-6.
  */
 @Controller
 public class controller {
 
+    @RequestMapping( value = "/addStaff_in/{id}")
+    public String addStaff(@PathVariable int id ){
+        switch(id) {
+            case 1:
+                return "index";
+            case 2:
+                return "CompanyShow";
+            default:
+                return "test1";
+        }
+    }
+
+
     @RequestMapping(value ="/change_view/{id}")
-    public String change(@PathVariable int id , Model model){
-        if(id == 1){
-            return "test";
+    public String change(@PathVariable int id, Model model ,HttpServletRequest request){
+        department dept = new department();
+        dept.setId(id);
+        switch(id){
+            case 1 :   dept.setName("总裁");break;
+            case 2 :   dept.setName("副总裁");break;
+            case 3 :   dept.setName("秘书部");break;
+            case 4 :   dept.setName("人事部");break;
+            case 5 :   dept.setName("销售部");break;
+            case 6 :   dept.setName("后勤部");break;
+            case 7 :   dept.setName("业务部");break;
         }
-        else{
-            return "index";
-        }
+        model.addAttribute("dept",dept);
+        return "test";
     }
     @RequestMapping(value="/adminJoin_in")
     public String adminJoin(Model model){
@@ -32,12 +56,13 @@ public class controller {
         return "index";
     }
     @RequestMapping(value = "/join_in")
-    public String In( admin admin,Model model) {
+    public String In( admin admin,Model model , HttpServletRequest request) {
         ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
        userService userService = (userService) a.getBean("userService");
        admin admin1 = userService.adminJoin();
        if(admin == null){
-           return "index";
+           request.setAttribute("admin",admin);
+           return "default";
        }
        else{
            if(admin1.getName().equals(admin.getName())  && admin1.getPassword().equals(admin.getPassword())){
@@ -45,9 +70,12 @@ public class controller {
                return "CompanyShow";
            }
            else{
-               return "index";
+               request.setAttribute("admin",admin);
+               return "default";
            }
        }
 
     }
+
+
 }
