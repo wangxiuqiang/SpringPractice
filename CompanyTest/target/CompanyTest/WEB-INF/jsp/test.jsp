@@ -8,20 +8,13 @@
     <title>Title</title>
 </head>
 <body>
-<c:set var="ctx" value="pageContext.request.contextPath"></c:set>
-${dept.name}
-${dept.id}
-<hr/>
-${ctx}
-<br />
-<c:out value="${dept.id}"/>
-<table>
-    <tr>
-        <td>
-            <a href="${ctx}/manager/1/1">添加</a>
-        </td>
-    </tr>
-</table>
 
+${staff.name}
+<hr/>
+${staff.id}
+<hr>
+${staff.money}
+<hr/>
+${staff.tel}
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.controller;
 import com.domain.admin;
 import com.domain.department;
 import com.domain.staff;
+import com.service.setDepartment;
 import com.service.userService;
 
 import org.springframework.context.ApplicationContext;
@@ -20,44 +21,61 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class controller {
 
+    /*
+       manager 用来跳转到指定的增删改查页面 jspid负责具体跳转到哪个页面
+        //infoid 用来标记哪个部门的成员
+        用infoid来将部门初始化,并且添加到model中
+     */
     @RequestMapping( value = "/manager/{jspid}/{infoid}")
     public String addStaff(@PathVariable int infoid ,@PathVariable int jspid, Model model){
+        setDepartment setDept = new setDepartment();
+        department dept = setDept.setDept(infoid);
+        model.addAttribute("dept",dept);
         switch(jspid) {
             case 1:
-                 model.addAttribute("id",infoid); return "addStaff";
+                 model.addAttribute("staff",new staff());
+                return "addStaff";
             case 2:
-                model.addAttribute("id",infoid); return "delectStaff";
+               // model.addAttribute("id",infoid);
+                return "delectStaff";
             case 3:
-                model.addAttribute("id",infoid); return "queryStaff";
+                //model.addAttribute("id",infoid);
+                return "queryStaff";
             case 4:
-                model.addAttribute("id",infoid);  return "updateStaff";
-                default:return "default";
+               // model.addAttribute("id",infoid);
+                return "updateStaff";
+            default:
+                    return "default";
         }
     }
 
 
+    /*
+    change_view  用来获取传过来的id,作为部门的id,并且根据id将name值赋值,将部门对象添加到Model中在页面中调用
+    跳转到部门管理页面,进行增删改查
+    setDepartment 用来将部门对象初始化
+     */
     @RequestMapping(value ="/change_view/{id}")
-    public String change(@PathVariable int id, Model model ,HttpServletRequest request){
-        department dept = new department();
-        dept.setId(id);
-        switch(id){
-            case 1 :   dept.setName("总裁");break;
-            case 2 :   dept.setName("副总裁");break;
-            case 3 :   dept.setName("秘书部");break;
-            case 4 :   dept.setName("人事部");break;
-            case 5 :   dept.setName("销售部");break;
-            case 6 :   dept.setName("后勤部");break;
-            case 7 :   dept.setName("业务部");break;
-        }
+    public String change(@PathVariable int id, Model model ){
+        setDepartment setDept = new setDepartment();
+        department dept = setDept.setDept(id);
         model.addAttribute("dept",dept);
         return "departmentManager";
     }
+
+    /*
+      adminJoin_in 负责将表单输入的值保存在一个admin对象中,并跳转到登录表单页面
+     */
     @RequestMapping(value="/adminJoin_in")
     public String adminJoin(Model model){
 
         model.addAttribute("admin",new admin());
         return "index";
     }
+    /*
+     join_in负责从把从数据库提取出来的值和表单输入传过来的值对比,登录成功建返回到主页面,不成功就返回到登录失败页面
+     request 的提交方法可以在页面使用 javaBean代码
+     */
     @RequestMapping(value = "/join_in")
     public String In( admin admin,Model model , HttpServletRequest request) {
         ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
@@ -80,5 +98,16 @@ public class controller {
 
     }
 
+
+    @RequestMapping(value = "add_Staff")
+    public String addStaff(staff staff ,Model model){
+        if(staff == null){
+            return "test1";
+        }
+        else {
+            model.addAttribute("staff",staff);
+            return "test";
+        }
+    }
 
 }

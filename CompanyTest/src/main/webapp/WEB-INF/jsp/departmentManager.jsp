@@ -6,6 +6,7 @@
     <title>${dept.name}管理</title>
 </head>
 <body>
+
 <div id="div1" style="left: 500px; top: 400px; border: 2px; border-color: black;">
     <table>
         <tr>
