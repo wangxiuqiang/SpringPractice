@@ -20,15 +20,18 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class controller {
 
-    @RequestMapping( value = "/addStaff_in/{id}")
-    public String addStaff(@PathVariable int id ){
-        switch(id) {
+    @RequestMapping( value = "/manager/{jspid}/{infoid}")
+    public String addStaff(@PathVariable int infoid ,@PathVariable int jspid, Model model){
+        switch(jspid) {
             case 1:
-                return "index";
+                 model.addAttribute("id",infoid); return "addStaff";
             case 2:
-                return "CompanyShow";
-            default:
-                return "test1";
+                model.addAttribute("id",infoid); return "delectStaff";
+            case 3:
+                model.addAttribute("id",infoid); return "queryStaff";
+            case 4:
+                model.addAttribute("id",infoid);  return "updateStaff";
+                default:return "default";
         }
     }
 
@@ -47,7 +50,7 @@ public class controller {
             case 7 :   dept.setName("业务部");break;
         }
         model.addAttribute("dept",dept);
-        return "test";
+        return "departmentManager";
     }
     @RequestMapping(value="/adminJoin_in")
     public String adminJoin(Model model){
