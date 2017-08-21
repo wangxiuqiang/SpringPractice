@@ -11,11 +11,16 @@
 <html>
 <head>
     <title>添加员工</title>
+     <script type="text/javascript" >
+         function back(){
+             window.location.href="${pageContext.request.contextPath}/change_view/${dept.id}";
+         }
+     </script>
 </head>
 <body>
 <h2> 添加 ${dept.name}的成员</h2>
 <!--   -->
-    <form:form commandName="staff" id="staff" method="post" action="${pageContext.request.contextPath}/add_Staff">
+    <form:form commandName="staff" id="staff" method="post" action="${pageContext.request.contextPath}/add_Staff/${dept.id}">
         <table>
             <tr>
                 <td>
@@ -45,6 +50,7 @@
                 <td>
                     <input type="submit" value="submit" />
                     <input type="reset" value="reset" />
+                    <input value="back" type="button" onclick="back()"/>
                 </td>
             </tr>
         </table>

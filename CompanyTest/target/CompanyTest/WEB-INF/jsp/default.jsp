@@ -12,8 +12,11 @@
     <title>登录失败</title>
 </head>
 <body>
+
+
  <%!  String str; %>
   <%
+
       admin admin = (admin)request.getAttribute("admin");
      if (admin.getName() == ""){
           str = "用户名不能为空";

@@ -33,16 +33,16 @@ public class controller {
         model.addAttribute("dept",dept);
         switch(jspid) {
             case 1:
-                 model.addAttribute("staff",new staff());
+                model.addAttribute("staff",new staff());
                 return "addStaff";
             case 2:
-               // model.addAttribute("id",infoid);
-                return "delectStaff";
+               model.addAttribute("staffId", new staff());
+               return "delectStaff";
             case 3:
                 //model.addAttribute("id",infoid);
                 return "queryStaff";
             case 4:
-               // model.addAttribute("id",infoid);
+                //model.addAttribute("id",infoid);
                 return "updateStaff";
             default:
                     return "default";
@@ -82,6 +82,7 @@ public class controller {
        userService userService = (userService) a.getBean("userService");
        admin admin1 = userService.adminJoin();
        if(admin == null){
+          request.setAttribute("flag","join");
            request.setAttribute("admin",admin);
            return "default";
        }
@@ -98,15 +99,66 @@ public class controller {
 
     }
 
-
-    @RequestMapping(value = "add_Staff")
-    public String addStaff(staff staff ,Model model){
+    /*
+     * 添加员工的信息,如果为空就返回default页面,如果添加不成功也执行default页面
+     * 添加成功就返回success页面,提示成功
+     * id 的作用是部门编号,保证添加的员工的部门正确
+     * @param id
+     * @param staff
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "add_Staff/{id}")
+    public String addStaff(@PathVariable int id, staff staff ,Model model,HttpServletRequest request){
         if(staff == null){
-            return "test1";
+            model.addAttribute("flag","输入不能为空");
+            return "default";
         }
         else {
             model.addAttribute("staff",staff);
-            return "test";
+            ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
+            userService userService = (userService) a.getBean("userService");
+            int i = userService.addStaff(staff,id);
+            request.setAttribute("flag","add");
+            String str = "输入的员工信息:\n员工编号:" + staff.getId() + "\n员工姓名:"
+                    + staff.getName() + "\n员工电话:" + staff.getTel() + "\n员工薪水"
+                    +staff.getMoney();
+            if(i != 0) {
+                model.addAttribute("str", str);
+                model.addAttribute("id",id);
+                return "success";
+            }
+            else{
+                model.addAttribute("default" ,"添加失败");
+                return "default";
+            }
+
+        }
+    }
+
+    /*
+     * id 负责表示部门 ,
+     * @param id
+     * @param
+     * @param model
+     * @return
+     */
+    @RequestMapping(value ="delete_staff/{id}")
+    public String deleteStaff(@PathVariable int id , staff staffId , Model model ){
+        ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
+        userService userService = (userService) a.getBean("userService");
+        String str;
+        int i = userService.deleteStaff(id, staffId.getId());
+        if(i != 0){
+            str = "删除成功.";
+            model.addAttribute("id",id);
+            model.addAttribute("str",str);
+            return "success";
+        } else {
+          str = "删除失败.";
+          model.addAttribute("str",str);
+          return "default";
         }
     }
 
