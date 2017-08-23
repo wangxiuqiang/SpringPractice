@@ -20,7 +20,7 @@
 <body>
 <h2> 添加 ${dept.name}的成员</h2>
 <!--   -->
-    <form:form commandName="staff" id="staff" method="post" action="${pageContext.request.contextPath}/add_Staff/${dept.id}">
+    <form:form commandName="staffAdd" id="staff" method="post" action="${pageContext.request.contextPath}/add_Staff/${dept.id}">
         <table>
             <tr>
                 <td>

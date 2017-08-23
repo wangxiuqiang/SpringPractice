@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -109,7 +111,151 @@ public class userService {
         i = jdbcTemplate.update(deleteSql);
         return i;
     }
+    /**
+     *更改某个记录的值, id 的值就是staff中的id
+     */
+    public int updateStaff(int DeptId , int id , staff staff){
+        String updateSql;
+        int i = 0 ;
+        if(DeptId == 1) {
+            if (!staff.getName().equals(null)){
+                updateSql = "UPDATE presidentStaff SET name = '" + staff.getName() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+            if(!staff.getTel().equals(null)){
+                updateSql = "UPDATE presidentStaff SET tel = '" + staff.getTel() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+            if(staff.getMoney() != 0 ){
+                updateSql = "UPDATE presidentStaff SET money = " + staff.getMoney() + " WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+        }
+        else if (DeptId == 2){
+            if (!staff.getName().equals(null)){
+                updateSql = "UPDATE vicePresidentStaff SET name = '" + staff.getName() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+            if(!staff.getTel().equals(null)){
+                updateSql = "UPDATE vicePresidentStaff SET tel = '" + staff.getTel() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+            if(staff.getMoney() != 0 ){
+                updateSql = "UPDATE vicePresidentStaff SET money = " + staff.getMoney() + " WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+        }else if(DeptId == 3){
+            if (!staff.getName().equals(null)){
+                updateSql = "UPDATE secretaryStaff SET name = '" + staff.getName() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+            if(!staff.getTel().equals(null)){
+                updateSql = "UPDATE secretaryStaff SET tel = '" + staff.getTel() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+            if(staff.getMoney() != 0 ){
+                updateSql = "UPDATE secretaryStafff SET money = " + staff.getMoney() + " WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+        }
+        else if(DeptId == 4){
+            if (!staff.getName().equals(null)){
+                updateSql = "UPDATE  personStaff SET name = '" + staff.getName() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+            if(!staff.getTel().equals(null)){
+                updateSql = "UPDATE personStaff SET tel = '" + staff.getTel() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+            if(staff.getMoney() != 0 ){
+                updateSql = "UPDATE personStaff SET money = " + staff.getMoney() + " WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+        }else if(DeptId == 5){
+            if (!staff.getName().equals(null)){
+                updateSql = "UPDATE saleStaff SET name = '" + staff.getName() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+            if(!staff.getTel().equals(null)){
+                updateSql = "UPDATE saleStaff SET tel = '" + staff.getTel() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+            if(staff.getMoney() != 0 ){
+                updateSql = "UPDATE saleStaff SET money = " + staff.getMoney() + " WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+        }
+        else if(DeptId == 6){
+            if (!staff.getName().equals(null)){
+                updateSql = "UPDATE logisitcStaff SET name = '" + staff.getName() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+            if(!staff.getTel().equals(null)){
+                updateSql = "UPDATE logisitcStaff SET tel = '" + staff.getTel() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+            if(staff.getMoney() != 0 ){
+                updateSql = "UPDATE logisitcStaff SET money = '" + staff.getMoney() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+        }else{
+            if (!staff.getName().equals(null)){
+                updateSql = "UPDATE businessStaff SET name = '" + staff.getName() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+
+            if(!staff.getTel().equals(null)){
+                updateSql = "UPDATE businessStaff SET tel = '" + staff.getTel() + "' WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+            if(staff.getMoney() != 0 ){
+                updateSql = "UPDATE businessStaff SET money = " + staff.getMoney() + "   WHERE id = " + id;
+                i = jdbcTemplate.update(updateSql);
+            }
+        }
+
+        return i;
+    }
+/*
+查询信息
+
+ */
+    public List queryStaff(int DeptId){
+        String querySql ;
+        List list;
+        switch(DeptId){
+            case 1: querySql = "select * from presidentStaff";
+            list = jdbcTemplate.queryForList(querySql);break;
+            case 2:querySql = "select * from vicePresidentStaff"; list = jdbcTemplate.queryForList(querySql);break;
+            case 3:querySql = "select * from secretaryStaff";
+                list = jdbcTemplate.queryForList(querySql);break;
+            case 4:querySql = "select * from personStaff";
+                list = jdbcTemplate.queryForList(querySql);break;
+            case 5:querySql = "select * from saleStaff";
+                list = jdbcTemplate.queryForList(querySql);break;
+            case 6:querySql = "select * from logisitcStaff";
+                list = jdbcTemplate.queryForList(querySql);break;
+            case 7:querySql = "select * from businessStaff";
+                list = jdbcTemplate.queryForList(querySql);break;
+            default: list = null;
+        }
+        return list;
+    }
+
 }
+
 
 
 class MyRowMapper implements RowMapper<admin> {

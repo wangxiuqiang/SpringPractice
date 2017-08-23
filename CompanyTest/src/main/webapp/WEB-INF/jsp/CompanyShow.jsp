@@ -51,5 +51,6 @@
                 </tr>
             </table>
       </div>
+<a href="${pageContext.request.contextPath}/adminJoin_in">点击返回登录页面</a>
 </body>
 </html>

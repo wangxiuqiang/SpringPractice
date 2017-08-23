@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by wxq on 17-8-6.
@@ -33,23 +35,51 @@ public class controller {
         model.addAttribute("dept",dept);
         switch(jspid) {
             case 1:
-                model.addAttribute("staff",new staff());
+                model.addAttribute("staffAdd",new staff());
                 return "addStaff";
             case 2:
                model.addAttribute("staffId", new staff());
                return "delectStaff";
             case 3:
-                //model.addAttribute("id",infoid);
-                return "queryStaff";
+                return "redirect:/query_staff/" + infoid;
             case 4:
-                //model.addAttribute("id",infoid);
+                model.addAttribute("staffUpdate",new staff());
                 return "updateStaff";
             default:
-                    return "default";
+                    return "defaultInfo";
         }
     }
 
 
+    /*
+       更改控制, deptId 负责部门的控制 , staff负责 读取表单传过来的内容,
+     */
+     @RequestMapping(value = "/update_staff/{deptId}" )
+     public String updateStaff(@PathVariable int deptId, staff staff, Model model, RedirectAttributes redirect){
+         ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
+         userService userService = (userService) a.getBean("userService");
+         String str;
+         int i = userService.updateStaff(deptId,staff.getId(),staff);
+         model.addAttribute("id",deptId);
+         if(i != 0 ){
+             str = "修改成功";
+             redirect.addFlashAttribute("str",str);
+             redirect.addFlashAttribute("id",deptId);
+             return "redirect:/success";
+         }
+         else{
+             str = "修改失败";
+             model.addAttribute("str",str);
+             return "defaultInfo";
+         }
+     }
+/*
+     重定向的成功页面
+     */
+     @RequestMapping(value ="/success")
+     public  String success(){
+         return "success";
+    }
     /*
     change_view  用来获取传过来的id,作为部门的id,并且根据id将name值赋值,将部门对象添加到Model中在页面中调用
     跳转到部门管理页面,进行增删改查
@@ -110,10 +140,10 @@ public class controller {
      * @return
      */
     @RequestMapping(value = "add_Staff/{id}")
-    public String addStaff(@PathVariable int id, staff staff ,Model model,HttpServletRequest request){
+    public String addStaff(@PathVariable int id, staff staff ,Model model,HttpServletRequest request ,RedirectAttributes redirect){
         if(staff == null){
             model.addAttribute("flag","输入不能为空");
-            return "default";
+            return "defaultInfo";
         }
         else {
             model.addAttribute("staff",staff);
@@ -125,41 +155,56 @@ public class controller {
                     + staff.getName() + "\n员工电话:" + staff.getTel() + "\n员工薪水"
                     +staff.getMoney();
             if(i != 0) {
-                model.addAttribute("str", str);
-                model.addAttribute("id",id);
-                return "success";
+                redirect.addFlashAttribute("str",str);
+
+                redirect.addFlashAttribute("id",id);
+                return "redirect:/success";
             }
             else{
                 model.addAttribute("default" ,"添加失败");
-                return "default";
+                return "defaultInfo";
             }
 
         }
     }
 
     /*
-     * id 负责表示部门 ,
+     * id 负责表示部门 ,删除记录的控制
      * @param id
      * @param
      * @param model
      * @return
      */
     @RequestMapping(value ="delete_staff/{id}")
-    public String deleteStaff(@PathVariable int id , staff staffId , Model model ){
+    public String deleteStaff(@PathVariable int id , staff staffId,RedirectAttributes redirect , Model model ){
         ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
         userService userService = (userService) a.getBean("userService");
         String str;
         int i = userService.deleteStaff(id, staffId.getId());
         if(i != 0){
             str = "删除成功.";
-            model.addAttribute("id",id);
-            model.addAttribute("str",str);
+           redirect.addFlashAttribute("id",id);
+            redirect.addFlashAttribute("str",str);
             return "success";
         } else {
           str = "删除失败.";
           model.addAttribute("str",str);
-          return "default";
+          return "defaultInfo";
         }
+    }
+    /*
+    查询  记录的方法
+     */
+    @RequestMapping(value = "/query_staff/{id}")
+    public String queryStaff(@PathVariable int id , HttpServletRequest request,Model model){
+        setDepartment setDept = new setDepartment();
+        department dept = setDept.setDept(id);
+        model.addAttribute("dept",dept);
+        ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
+        userService userService = (userService) a.getBean("userService");
+       List list =  userService.queryStaff(id);
+        model.addAttribute("list",list);
+        return "queryStaff";
     }
 
 }
