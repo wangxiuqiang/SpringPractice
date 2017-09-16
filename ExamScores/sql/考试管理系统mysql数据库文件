@@ -1,0 +1,24 @@
+
+CREATE DATABASE exam;
+USE exam;
+CREATE TABLE admin(
+name varchar(20)  NOT NULL,
+password varchar(20)  NOT NULL
+);
+CREATE TABLE teacher(
+id int PRIMARY KEY  NOT NULL,
+password varchar(20) NOT NULL,
+name varchar(20)  NOT NULL
+);
+CREATE TABLE student(
+id int PRIMARY KEY NOT NULL,
+password varchar(20)  NOT NULL,
+class int  NOT NULL,
+classId int NOT NULL,
+groud float  ,
+examId int ,
+examIdNum int ,
+examDate varchar(20) 
+ );
+
+
