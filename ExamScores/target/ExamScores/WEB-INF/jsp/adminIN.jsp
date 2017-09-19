@@ -1,9 +1,6 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: wxq
-  Date: 17-9-16
-  Time: 下午7:25
-  To change this template use File | Settings | File Templates.
+  管理员登录成功界面,对老师学生的全面管理
+
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -92,10 +89,10 @@
         </tr>
         <tr align="center">
             <td>
-                <a href="#">添加信息</a>
+                <a href="add_information/1">添加信息</a>
             </td>
             <td>
-
+                <a href="add_information/0">添加信息</a>
             </td>
         </tr>
     </table>

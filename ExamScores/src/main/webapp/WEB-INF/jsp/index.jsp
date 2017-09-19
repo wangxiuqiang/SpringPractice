@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: wxq
-  Date: 17-9-13
-  Time: 下午8:35
-  To change this template use File | Settings | File Templates.
+登录页面 , 根据需要确认哪个级别的人物登录
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>

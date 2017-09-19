@@ -5,7 +5,10 @@ package com.domain;
  */
 public class Join {
     private String name;
-    private String passwd;
+
+
+    private String password;
+    private int id;
 
     public String getName() {
         return name;
@@ -15,11 +18,19 @@ public class Join {
         this.name = name;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

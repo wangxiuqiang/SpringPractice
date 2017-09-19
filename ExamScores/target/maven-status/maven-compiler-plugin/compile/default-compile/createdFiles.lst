@@ -1,2 +1,4 @@
+com/domain/student.class
 com/controller/controller.class
 com/domain/Join.class
+com/domain/teacher.class
