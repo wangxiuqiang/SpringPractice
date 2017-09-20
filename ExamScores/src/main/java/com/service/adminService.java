@@ -16,7 +16,7 @@ import java.util.List;
  * 用来写那个数据库的操作
  */
 @Service
-public class adminService  implements adminServiceImp{
+public class adminService  {
     private JdbcTemplate jdbcTemplate;
 
     public JdbcTemplate getJdbcTemplate() {
@@ -47,7 +47,6 @@ public class adminService  implements adminServiceImp{
             Join admin = jdbcTemplate.queryForObject(Querysql,new MyRowMapper());
 
             if (admin != null) {
-
                 return admin;
             } else {
                 return null;
@@ -84,7 +83,6 @@ class MyRowMapper implements RowMapper<Join> {
          String name=	rs.getString("name");
          String password = rs.getString("password");
          int id = rs.getInt("id");
-
          Join  admin = new Join();
          admin.setName(name);
          admin.setPassword(password);

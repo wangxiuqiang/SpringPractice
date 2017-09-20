@@ -113,7 +113,7 @@
                 <td>
 
                     <p>
-                        密&nbsp;&nbsp;&nbsp;&nbsp;码: <form:password cssClass="tPassword" path="passwd" placeholder="请输入密码" />
+                        密&nbsp;&nbsp;&nbsp;&nbsp;码: <form:password cssClass="tPassword" path="password" placeholder="请输入密码" />
                     </p>
                 </td>
             </tr>
