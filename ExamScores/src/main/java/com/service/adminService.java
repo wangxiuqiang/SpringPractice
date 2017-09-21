@@ -5,6 +5,7 @@ import com.domain.student;
 import com.domain.teacher;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * 用来写那个数据库的操作
  */
-@Service
+
 public class adminService  {
     private JdbcTemplate jdbcTemplate;
 
@@ -76,17 +77,15 @@ public class adminService  {
     }
 
 }
-
-
 class MyRowMapper implements RowMapper<Join> {
-     public Join mapRow(ResultSet rs, int n) throws SQLException {
-         String name=	rs.getString("name");
-         String password = rs.getString("password");
-         int id = rs.getInt("id");
-         Join  admin = new Join();
-         admin.setName(name);
-         admin.setPassword(password);
-         admin.setId(id);
-         return admin;
-     }
+    public Join mapRow(ResultSet rs, int n) throws SQLException {
+        String name= rs.getString("name");
+        String password = rs.getString("password");
+        Join  admin = new Join();
+        admin.setName(name);
+        admin.setPassword(password);
+        return admin;
+    }
 }
+
+

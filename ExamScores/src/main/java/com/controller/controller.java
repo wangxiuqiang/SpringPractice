@@ -3,8 +3,10 @@ package com.controller;
 import com.domain.Join;
 import com.domain.student;
 import com.domain.teacher;
-import com.service.*;
+import com.service.adminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,11 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class controller {
 
-    /*
-       用来调用数据库操作的接口对象
-     */
-    @Autowired
-    private  adminService adminService;
    /*
    登录页面用来登录 用join对象来提供登录信息
     */
@@ -37,8 +34,15 @@ public class controller {
  */
     @RequestMapping(value = "/success_in")
     public String AdminIn(Model model, Join join) {
+        ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
+        adminService adminService=  (adminService) a.getBean("service");
         Join joinIN = adminService.adminJoin();
-        if(joinIN != null ){
+        if(joinIN == null ){
+            model.addAttribute("a","b");
+            model.addAttribute("admin",joinIN);
+            model.addAttribute("admin2",join);
+            return "failure";
+        }else {
             if(joinIN.getName().equals(join.getName()) && joinIN.getPassword().equals(join.getPassword())){
                 return "adminIN";
             }
@@ -48,11 +52,6 @@ public class controller {
                 model.addAttribute("admin2",join);
                 return "failure";
             }
-        }else {
-            model.addAttribute("a","b");
-            model.addAttribute("admin",joinIN);
-            model.addAttribute("admin2",join);
-            return "failure";
         }
 
 //        if (join.getName().equals("admin") && join.getPassword().equals("admin")) {
