@@ -8,12 +8,12 @@
 <html>
 <head>
     <title>请登录</title>
-    <link rel="stylesheet" href="../css/main.css"  type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css"/>
 </head>
 <body>
 <div class="HeadDiv">某大学计算机学院考试成绩查询系统</div>
 
-<div class=""></div>
+<div class="BackDiv"></div>
 
 <div class="FormDiv">
     <div class="ChooseDiv">
