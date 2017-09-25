@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <html lang="en">
 <head>
@@ -63,11 +64,13 @@
 <%--表单结构    通过flag的值来确定显示哪个表单 , 表单是对学生和老师的信息的添加 --%>
 <div class="header"> </div>
 <h3>请输入 信息</h3>
-<%!  Integer flag;%>
-<%
-    flag = (Integer) request.getAttribute("flag");
-    if(flag==0){
-%><form:form commandName="student" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/0">
+<%--<%!  Integer flag;%>--%>
+<%--<%--%>
+    <%--flag = (Integer) request.getAttribute("flag");--%>
+    <%--if(flag==0){--%>
+<%--%>--%>
+<c:if test="${flag ==1}  ">
+<form:form commandName="student" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/0">
     <div class="middle">
         <table>
             <tr>
@@ -114,8 +117,11 @@
         </table>
     </div>
 </form:form>
-<% }else if(flag ==1){
-%>
+</c:if>
+
+<%--<% }else if(flag ==1){--%>
+<%--%>--%>
+<c:if test="${flag == 0}">
 <form:form commandName="teacher" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/1">
 <div class="middle">
     <table>
@@ -149,9 +155,10 @@
     </table>
 </div>
 </form:form>
-<%
-    }
-    %>
+</c:if>
+<%--<%--%>
+    <%--}--%>
+    <%--%>--%>
 <div class="footer"></div>
 </body>
 </html>

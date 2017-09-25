@@ -53,7 +53,6 @@ public class controller {
                 return "failure";
             }
         }
-
 //        if (join.getName().equals("admin") && join.getPassword().equals("admin")) {
 //            return "adminIN";
 //        } else {
@@ -69,12 +68,14 @@ public class controller {
     public String addInformation(student student, teacher teacher , Model model , HttpServletRequest request, @PathVariable int flag){
         if(flag == 1) {
             model.addAttribute("teacher" , teacher);
-            request.setAttribute("flag" ,flag);
+            model.addAttribute("flag" ,flag);
+//            request.setAttribute("flag" ,flag);
             return "addInformation";
         }
        else if(flag == 0) {
             model.addAttribute("student",student);
-            request.setAttribute("flag" ,flag);
+            model.addAttribute("flag" ,flag);
+            //request.setAttribute("flag" ,flag);
             return "addInformation";
         }
         else{

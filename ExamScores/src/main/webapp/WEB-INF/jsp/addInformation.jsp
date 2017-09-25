@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <html lang="en">
 <head>
@@ -67,7 +68,9 @@
 <%
     flag = (Integer) request.getAttribute("flag");
     if(flag==0){
-%><form:form commandName="student" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/0">
+%>
+
+<form:form commandName="student" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/0">
     <div class="middle">
         <table>
             <tr>
@@ -114,8 +117,10 @@
         </table>
     </div>
 </form:form>
+
 <% }else if(flag ==1){
 %>
+
 <form:form commandName="teacher" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/1">
 <div class="middle">
     <table>
