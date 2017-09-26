@@ -69,13 +69,13 @@ public class controller {
         if(flag == 1) {
             model.addAttribute("teacher" , teacher);
             model.addAttribute("flag" ,flag);
-//            request.setAttribute("flag" ,flag);
+            request.setAttribute("flag" ,flag);
             return "addInformation";
         }
        else if(flag == 0) {
             model.addAttribute("student",student);
             model.addAttribute("flag" ,flag);
-            //request.setAttribute("flag" ,flag);
+            request.setAttribute("flag" ,flag);
             return "addInformation";
         }
         else{
