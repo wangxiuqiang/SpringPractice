@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by wxq on 17-9-13.
@@ -53,11 +54,6 @@ public class controller {
                 return "failure";
             }
         }
-//        if (join.getName().equals("admin") && join.getPassword().equals("admin")) {
-//            return "adminIN";
-//        } else {
-//            return "failure";
-//        }
     }
 
     /*
@@ -69,13 +65,11 @@ public class controller {
         if(flag == 1) {
             model.addAttribute("teacher" , teacher);
             model.addAttribute("flag" ,flag);
-            request.setAttribute("flag" ,flag);
             return "addInformation";
         }
        else if(flag == 0) {
             model.addAttribute("student",student);
             model.addAttribute("flag" ,flag);
-            request.setAttribute("flag" ,flag);
             return "addInformation";
         }
         else{
@@ -119,6 +113,22 @@ public class controller {
     public String successAdd() {
        return "successAdd";
     }
-
+    /**
+     * 显示学生和老师的信息,1 表示老师,0  表示学生
+     */
+    @RequestMapping(value = "/query_Information/{flag}")
+    public String queryInformation(@PathVariable int flag , Model model){
+        model.addAttribute("flag",flag);
+        ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
+        adminService adminService=  (adminService) a.getBean("service");
+        List list;
+        if(flag ==  1){
+            list = adminService.queryInformation(1);
+        }else{
+             list = adminService.queryInformation(0);
+        }
+        model.addAttribute("list",list);
+        return "showInformation";
+    }
 
 }

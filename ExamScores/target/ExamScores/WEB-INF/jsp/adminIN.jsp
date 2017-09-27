@@ -65,7 +65,7 @@
         </tr>
         <tr align="center">
             <td >
-                <a href="#">查询信息</a>
+                <a href="query_Information/1">查询信息</a>
             </td>
             <td>
                 <a href="#">查询信息</a>

@@ -1,6 +1,7 @@
 com/controller/controller.class
 com/domain/teacher.class
 com/domain/student.class
+com/service/MyRowMapper1.class
 com/domain/Join.class
 com/service/adminService.class
 com/service/MyRowMapper.class

@@ -13,62 +13,13 @@
 <head>
     <meta charset="UTF-8">
     <title>添加信息</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            height: 150px;
-            background-color: orange;
-        }
-
-        .footer {
-            height: 160px;
-            background-color: purple;
-        }
-
-        .text {
-            border-color: skyblue;
-            width: 181px;
-            height: 20px;
-            display: inline-block;
-            margin-top: 30px;
-            border-radius: 5px;
-        }
-
-        .middle {
-            width: 300px;
-            height: 330px;
-            margin:30px auto;
-
-        }
-        h3 {
-            font-size:30px;
-        }
-        .button {
-            border-radius: 10px 10px 10px 10px;
-            width:80px;
-            height:30px;
-            display: inline-block;
-            margin-top: 20px;
-            margin-left: 55px;
-            color:black;
-            font-size: 16px;
-        }
-    </style>
+    <link href="${pageContext.request.contextPath}/css/addInformation.css" rel="stylesheet">
 </head>
 <body>
-<!--表单结构-->
-<%--表单结构    通过flag的值来确定显示哪个表单 , 表单是对学生和老师的信息的添加 --%>
+
 <div class="header"> </div>
 <h3>请输入 信息</h3>
-<%--<%!  Integer flag;%>--%>
-<%--<%--%>
-    <%--flag = (Integer) request.getAttribute("flag");--%>
-    <%--if(flag == 0){--%>
-<%--%>--%>
+
 <c:if test="${flag == 0}">
 <form:form commandName="student" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/0">
     <div class="middle">

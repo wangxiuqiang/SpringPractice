@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -62,15 +63,20 @@ public class adminService  {
      * 添加员工的jdbc操作
      */
 
-        public List queryInformation() {
+        public List queryInformation(int id) {
         String querySql ;
-        List list;
-        switch(1){
-            case 1: querySql = "select * from teacher";
-                   list = jdbcTemplate.queryForList(querySql);break;
+        List<teacher> list =new ArrayList<teacher>();
+            teacher teacher;
+        int  i = 1;
+        switch(id){
+            case 1: querySql = "select * from teacher WHERE id = ";
+                teacher = jdbcTemplate.queryForObject(querySql,new MyRowMapper1());
+                   while (teacher != null) {
+                        list.add(teacher);
+                       teacher = jdbcTemplate.queryForObject(querySql,new MyRowMapper1());
+                   }
+                     break;
             case 2:querySql = "select * from student";
-                   list = jdbcTemplate.queryForList(querySql);break;
-
             default: list = null;
         }
         return list;
@@ -87,5 +93,19 @@ class MyRowMapper implements RowMapper<Join> {
         return admin;
     }
 }
+
+class MyRowMapper1 implements RowMapper<teacher> {
+    public teacher mapRow(ResultSet rs, int n) throws SQLException {
+        int id = rs.getInt("id");
+        String name= rs.getString("name");
+        String password = rs.getString("password");
+        teacher teacher = new teacher();
+        teacher.setTid(id);
+        teacher.setTname(name);
+        teacher.setTpassword(password);
+        return  teacher;
+    }
+}
+
 
 
