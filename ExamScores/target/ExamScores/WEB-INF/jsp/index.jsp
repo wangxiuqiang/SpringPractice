@@ -1,5 +1,5 @@
 <%--
-登录页面 , 根据需要确认哪个级别的人物登录
+登录页面 , 根据需要确认哪个级别的人物登录 ,用flag控制 ，管理员2,老师是1 ，学生为0
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>

@@ -6,11 +6,19 @@ name varchar(20)  NOT NULL,
 password varchar(20)  NOT NULL
 );
 
+insert into admin(name,password) values('admin','admin');
+
+
 CREATE TABLE teacher(
 id int PRIMARY KEY  NOT NULL,
 password varchar(20) NOT NULL,
 name varchar(20)  NOT NULL
 );
+
+insert into teacher(id,password,name) values(1,'1','jack');
+insert into teacher(id,password,name) values(2,'2','tom');
+insert into teacher(id,password,name) values(3,'3','jhames');
+
 
 CREATE TABLE student(
 id int PRIMARY KEY NOT NULL,
@@ -23,4 +31,20 @@ examIdNum int ,
 examDate varchar(20) 
  );
 
+    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
+    values(1,'1',1501,1501,0,0,0,'5');
+    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
+    values(2,'2',1501,1501,0,0,0,'5');
+    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
+    values(3,'3',1501,1501,0,0,0,'5');
+    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
+    values(4,'4',1501,1501,0,0,0,'5');
+    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
+    values(5,'5',1501,1501,0,0,0,'5');
 
+/**
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css"/>
+    <div class="header">插个图片</div>
+    <div class="footer">图片</div>
+    每个网页的开头和结尾,和它们的css的位置
+**/

@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: wxq
-  Date: 17-9-19
-  Time: 下午7:04
-  To change this template use File | Settings | File Templates.
+   管理员添加信息成功窗口，可以改为老师添加成绩一起的窗口
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

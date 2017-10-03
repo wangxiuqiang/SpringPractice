@@ -3,23 +3,23 @@ package com.controller;
 import com.domain.Join;
 import com.domain.student;
 import com.domain.teacher;
-import com.service.adminService;
+import com.domain.doIt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * Created by wxq on 17-9-13.
  */
 @Controller
 public class controller {
+
+    @Autowired
+    public  doIt doIt;
 
    /*
    登录页面用来登录 用join对象来提供登录信息
@@ -34,10 +34,8 @@ public class controller {
         用来测试登录是否成功
  */
     @RequestMapping(value = "/success_in")
-    public String AdminIn(Model model, Join join) {
-        ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
-        adminService adminService=  (adminService) a.getBean("service");
-        Join joinIN = adminService.adminJoin();
+    public String AdminIn(Model model, Join join) throws Exception {
+        Join  joinIN  =  doIt.adminJoinInIt();
         if(joinIN == null ){
             model.addAttribute("a","b");
             model.addAttribute("admin",joinIN);
@@ -118,17 +116,13 @@ public class controller {
      */
     @RequestMapping(value = "/query_Information/{flag}")
     public String queryInformation(@PathVariable int flag , Model model){
-        model.addAttribute("flag",flag);
-        ApplicationContext a = new ClassPathXmlApplicationContext("../../WEB-INF/springmvc-config.xml");
-        adminService adminService=  (adminService) a.getBean("service");
-        List list;
-        if(flag ==  1){
-            list = adminService.queryInformation(1);
-        }else{
-             list = adminService.queryInformation(0);
-        }
-        model.addAttribute("list",list);
+
+
         return "showInformation";
     }
+    @RequestMapping(value = "/update_delete/{flag}")
+    public String updateAndDelect(@PathVariable int flag ,Model model){
 
+        return "updateAndDelete";
+    }
 }

@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: wxq
-  Date: 17-9-27
-  Time: 下午7:29
-  To change this template use File | Settings | File Templates.
+ 显示信息，    用来将老师或者学生的信息全部显示   ,也可以搜素学号进行显示
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>

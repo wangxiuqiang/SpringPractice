@@ -14,7 +14,7 @@
 </head>
 <body>
      失败
-     <c:if
+
      ${a}<br>
 ${admin.name}
      <br>

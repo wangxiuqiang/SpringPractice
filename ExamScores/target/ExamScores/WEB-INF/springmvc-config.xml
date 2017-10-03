@@ -9,32 +9,16 @@
 http://www.springframework.org/schema/context/spring-context.xsd
   http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
+    <mvc:annotation-driven />
     <context:component-scan base-package="com.controller"/>
-
+    <context:component-scan base-package="com.domain"/>
     <mvc:annotation-driven />
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/css/**" location="/css/"/>
-    <!-- jdbc连接数据库-->
-    <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/exam"/>
-    </bean>
-
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource"   ref="dataSource"/>
-    </bean>
-
     <!-- 视图解析器-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--bean 用来调用service方法,保证他能够使用 -->
-    <bean id="service" class="com.service.adminService" >
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
-     </bean>
 </beans>
