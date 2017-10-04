@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
+import java.util.List;
+
 @Service
 public class doIt {
     private SqlSessionFactory sqlSessionFactory;
@@ -26,5 +28,15 @@ public class doIt {
         Join join = adminService.adminJoinIn();
         sqlSession.close();
         return join;
+    }
+    /**
+     * 用来返回老师的全部信息的方法
+     */
+    public List<teacher>  queryAllTeacher() throws Exception{
+        SetUp();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        adminService adminService = sqlSession.getMapper(com.service.adminService.class);
+        List<teacher> teachers = adminService.queryAllForTeacher();
+        return teachers;
     }
 }

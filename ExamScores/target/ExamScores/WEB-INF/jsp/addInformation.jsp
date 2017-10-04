@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>添加信息</title>
-    <link href="${pageContext.request.contextPath}/css/adminINCss.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/addInformation.css" rel="stylesheet">
 </head>
 <body>
 

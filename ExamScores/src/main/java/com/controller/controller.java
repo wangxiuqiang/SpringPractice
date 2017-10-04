@@ -11,12 +11,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by wxq on 17-9-13.
  */
 @Controller
 public class controller {
+
+
+    /**
+     *
+     doIt 的获取需要从spring的配置文件中找到需要bean ,然后在doIt 的类上用Service标注
+
+     */
 
     @Autowired
     public  doIt doIt;
@@ -121,8 +129,9 @@ public class controller {
         return "showInformation";
     }
     @RequestMapping(value = "/update_delete/{flag}")
-    public String updateAndDelect(@PathVariable int flag ,Model model){
-
+    public String updateAndDelect(@PathVariable int flag ,Model model) throws Exception {
+        List<teacher> listTeacher = doIt.queryAllTeacher();
+        model.addAttribute("teachers",listTeacher);
         return "updateAndDelete";
     }
 }

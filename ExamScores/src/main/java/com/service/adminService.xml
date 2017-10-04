@@ -6,4 +6,9 @@
     <select id="adminJoinIn" resultType="com.domain.Join">
         SELECT * FROM admin;
     </select>
+
+    <!--查询所有的老师的statement-->
+    <select id="queryAllForTeacher" resultType="com.domain.teacher" >
+        SELECT  * FROM teacher;
+    </select>
 </mapper>

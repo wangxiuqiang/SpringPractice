@@ -5,9 +5,10 @@
     在一个页面实现不同的展示,显示信息使用foreach方法
 
 --%>
-<%@ page isELIgnored="false" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false"%>
 <html>
 <head>
     <title>
@@ -16,12 +17,13 @@
         <c:if test="${flag == 0}">删除学生信息</c:if>
         <c:if test="${flag == -1}">删除老师信息</c:if>
     </title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/">
+    <style type=" text/css" >
+        @import  url("<c:url value="/css/update_Delete.css"/>");
+    </style>
 </head>
 <body>
 <div class="header">插个图片</div>
-<div class="table">
+<div>
     <table>
         <tr>
             <td>
@@ -35,9 +37,6 @@
             </td>
 
         </tr>
-        <c:forEach items="teachers" begin="0" >
-            <tr ></tr>
-        </c:forEach>
     </table>
 </div>
 <div class="footer">图片</div>

@@ -3,11 +3,12 @@
 
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html lang="en">
 <meta charset="UTF-8">
 <head>
     <title>考试管理系统</title>
-    <link  rel="stylesheet"  href="${pageContext.request.contextPath}/css/adminINCss.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminIn.css" type="text/css"/>
 </head>
 <body>
 <div class="header">插个图片</div>
@@ -32,18 +33,19 @@
         </tr>
         <tr align="center">
             <td>
-                <a href="#" >删除信息</a>
+                <%--删除信息  -1 是老师, 0 是学生 修改信息 2 是老师,1是学生--%>
+                <a href="update_delete/-1" >删除信息</a>
             </td>
             <td>
-                <a href="#" >删除信息</a>
+                <a href="update_delete/0" >删除信息</a>
             </td>
         </tr>
         <tr align="center">
             <td>
-                <a href="#">修改信息</a>
+                <a href="update_delete/2">修改信息</a>
             </td>
             <td>
-                <a href="#">修改信息</a>
+                <a href="update_delete/1">修改信息</a>
             </td>
         </tr>
         <tr align="center">
