@@ -5,8 +5,17 @@
 
 
 .header {
-    height: 150px;
-    background-color: orange;
+    height: 200px;
+    background-image: url(../images/computerExamScoresManagementSystemHead.png);
+    width: 1366px;
+}
+
+
+.footer {
+    margin-left: 150px;
+    height: 261px;
+    width: 800px;
+    background-image: url(../images/computerExamScoresManagementSystemFoot.png);
 }
 
 .middle {
@@ -16,10 +25,6 @@
 
 }
 
-.footer {
-    height: 120px;
-    background-color: purple;
-}
 
 a {
     color:  skyblue;

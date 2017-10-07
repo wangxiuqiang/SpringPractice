@@ -3,15 +3,21 @@
     padding: 0;
 }
 
+
 .header {
-    height: 150px;
-    background-color: orange;
+    height: 200px;
+    background-image: url(../images/computerExamScoresManagementSystemHead.png);
+    width: 1366px;
 }
 
+
 .footer {
-    height: 160px;
-    background-color: purple;
+    margin-left: 200px;
+    height: 200px;
+    width: 800px;
+    background-image: url(../images/computerExamScoresManagementSystemFoot.png);
 }
+
 
 .text {
     border-color: skyblue;
