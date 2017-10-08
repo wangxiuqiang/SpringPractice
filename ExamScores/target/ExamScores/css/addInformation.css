@@ -7,12 +7,13 @@
 .header {
     height: 200px;
     background-image: url(../images/computerExamScoresManagementSystemHead.png);
-    width: 800px;
+    width: 1366px;
 }
 
 
 .footer {
-    height: 261px;
+    margin-left: 200px;
+    height: 200px;
     width: 800px;
     background-image: url(../images/computerExamScoresManagementSystemFoot.png);
 }
