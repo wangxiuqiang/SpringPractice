@@ -8,6 +8,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page isELIgnored="false"%>
 <html>
 <head>
@@ -24,19 +25,33 @@
 <body>
 <div class="header">插个图片</div>
 <div>
+
     <table>
         <tr>
-            <td>
-                编号
-            </td>
-            <td>
-                姓名
-            </td>
-            <td>
-                密码
-            </td>
-
+            <th>编号</th>
+            <th>姓名</th>
+            <th>密码</th>
         </tr>
+        <c:forEach items="${teachers}" var="teacher">
+
+        <tr>
+            <td><%--<c:out value="${teacher.id}"/> 两种方法都行--%>
+                ${teacher.id}
+            </td>
+            <td>
+                <c:out value="${teacher.name}"/>
+            </td>
+            <td>
+                <c:out value="${teacher.password}"/>
+            </td>
+            <td class="update_delete">
+                更改
+            </td>
+            <td class="update_delete">
+                删除
+            </td>
+        </tr>
+        </c:forEach>
     </table>
 </div>
 <div class="footer">图片</div>

@@ -26,7 +26,7 @@
             <tr>
                 <td>
                     <p >
-                        用户名: <form:input class="tText" path="name" placeholder="请输入学号" htmlEscape="true"/>
+                        用户名: <form:input class="tText" path="name" placeholder="请输入学号"  htmlEscape="true" autofocus="autofocus" accesskey="t"/>
                     </p>
                 </td>
             </tr>

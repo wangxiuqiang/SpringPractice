@@ -4,31 +4,31 @@ package com.domain;
  * Created by wxq on 17-9-17.
  */
 public class teacher {
-    private String tname;
-    private int tid;
-    private String tpassword;
+    private String name;
+    private int id;
+    private String password;
 
-    public String getTname() {
-        return tname;
+    public String getName() {
+        return name;
     }
 
-    public void setTname(String tname) {
-        this.tname = tname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getTid() {
-        return tid;
+    public int getId() {
+        return id;
     }
 
-    public void setTid(int tid) {
-        this.tid = tid;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getTpassword() {
-        return tpassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setTpassword(String tpassword) {
-        this.tpassword = tpassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

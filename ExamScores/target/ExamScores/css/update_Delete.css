@@ -11,3 +11,8 @@
     width: 800px;
     background-image: url(../images/computerExamScoresManagementSystemFoot.png);
 }
+
+.update_delete {
+    text-decoration: underline;
+    color: red;
+}
