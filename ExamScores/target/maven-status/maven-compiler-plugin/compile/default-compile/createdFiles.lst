@@ -2,5 +2,6 @@ com/controller/controller.class
 com/domain/doIt.class
 com/domain/teacher.class
 com/domain/student.class
+com/domain/JoinTS.class
 com/domain/Join.class
 com/service/adminService.class

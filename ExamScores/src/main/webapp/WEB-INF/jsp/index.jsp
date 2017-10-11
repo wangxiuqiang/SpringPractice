@@ -17,16 +17,16 @@
 
 <div class="FormDiv">
     <div class="ChooseDiv">
-        <div><a href="#">管理员登录</a></div>
-        <div><a href="#">教师登录</a></div>
-        <div><a href="#">学生登录</a></div>
+        <div><a href="${pageContext.request.contextPath}/join_in/2">管理员登录</a></div>
+        <div><a href="${pageContext.request.contextPath}/join_in/1">教师登录</a></div>
+        <div><a href="${pageContext.request.contextPath}/join_in/0">学生登录</a></div>
     </div>
-    <form:form commandName="join" id="join" action="success_in" method="post">
+    <form:form commandName="join" id="join" action="${pageContext.request.contextPath}/success_in" method="post">
         <table>
             <tr>
                 <td>
                     <p >
-                        用户名: <form:input class="tText" path="name" placeholder="请输入学号"  htmlEscape="true" autofocus="autofocus" accesskey="t"/>
+                        用户名: <form:input class="tText" path="name" placeholder="请输入编号"  htmlEscape="true" autofocus="autofocus" accesskey="t"/>
                     </p>
                 </td>
             </tr>
@@ -46,6 +46,7 @@
             </tr>
         </table>
     </form:form>
+
 </div>
 
 </body>

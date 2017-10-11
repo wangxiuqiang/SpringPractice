@@ -1,9 +1,6 @@
 package com.controller;
 
-import com.domain.Join;
-import com.domain.student;
-import com.domain.teacher;
-import com.domain.doIt;
+import com.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +28,63 @@ public class controller {
     public  doIt doIt;
 
    /*
-   登录页面用来登录 用join对象来提供登录信息
+   登录页面用来登录 用join对象来提供管理员登录信息
     */
-    @RequestMapping(value = "/join_in")
-    public String JoinIn(Model model, Join join) {
-        model.addAttribute("join", join);
-        return "index";
+    @RequestMapping(value = "/join_in/{flag}")
+    public String JoinIn(Model model, Join join,JoinTS joinTS, @PathVariable int flag) {
+
+        if(flag == 0 ){
+            model.addAttribute("joinTS",joinTS);
+            return "indexS";
+        }else if(flag == 1){
+            model.addAttribute("joinTS",joinTS);
+            return "indexT";
+        }else{
+            model.addAttribute("join", join);
+            return "index";
+        }
+
+
+
+
+    }
+//    @RequestMapping(value = "/tsJoin_in")
+//    public String TSJoin(Model model,  JoinTS joinTS) {
+//
+//        model.addAttribute("joinTS",joinTS);
+//        return "indexTS";
+//
+//    }
+    /*
+    flag 用来判断是学生还是老师登录 1 老师 0 学生
+     */
+    @RequestMapping(value = "/tsJoin_in/{flag}")
+    public String WhoJoinIn(@PathVariable int flag , Model model,JoinTS joinTS) throws  Exception{
+        if(flag == 1){
+            if(joinTS == null){
+                return "failure";
+            }
+            else{
+                boolean tOrf = doIt.joinMessageTeacher(joinTS);
+                if (tOrf == true){
+                    return "success";
+                }else {
+                    return "failure";
+                }
+            }
+        }else{
+            if(joinTS == null){
+                return "failure";
+            }
+            else{
+                boolean tOrf = doIt.joinMessageStudent(joinTS);
+                if (tOrf == true){
+                    return "success";
+                }else {
+                    return "failure";
+                }
+            }
+        }
 
     }
 /*
@@ -125,15 +173,33 @@ public class controller {
      */
     @RequestMapping(value = "/query_Information/{flag}")
     public String queryInformation(@PathVariable int flag , Model model){
-
-
         return "showInformation";
     }
+
+    /**
+     *
+     * @param flag  表示是学生还是老师,  删除还是修改
+     * 修改和删除的初始页面,如果返回的值是1,2, 就执行修改的部分,修改的部分也分为学生和老师,
+     *              删除 一样 如果是0(学生),-1(老师),就执行delete的部分
+     * @param model
+     * @param modelMap
+     * @return
+     * @throws Exception
+     */
     @RequestMapping(value = "/update_delete/{flag}")
     public String updateAndDelect(@PathVariable int flag ,Model model,ModelMap modelMap ) throws Exception {
-        List<teacher> listTeacher = doIt.queryAllTeacher();
 
-        modelMap.addAttribute("teachers",listTeacher);
+        //model 和 modelmap效果一样
+        if(flag == -1 || flag == 2) {
+            List<teacher> listTeacher = doIt.queryAllTeacher();
+            model.addAttribute("teachers",listTeacher);
+        }
+        if(flag == 0 || flag == 1){
+            List<student> listStudent = doIt.queryAllStudent();
+            model.addAttribute("students",listStudent);
+        }
+        model.addAttribute("flag",flag);
+
         return "updateAndDelete";
     }
 }
