@@ -8,14 +8,6 @@
     <title>显示信息</title>
 </head>
 <body>
-     <table>
-         <tr>
-             <td>${list.get(0).id}</td>
-             <td>${list.get(1).name}</td>
-             <td></td>
 
-         </tr>
-
-     </table>
 </body>
 </html>

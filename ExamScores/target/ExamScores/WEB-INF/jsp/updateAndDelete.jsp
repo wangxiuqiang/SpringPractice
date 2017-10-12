@@ -24,9 +24,22 @@
 </head>
 <body>
 <div class="header">插个图片</div>
-<div>
-
+<div class="daohang">
     <table>
+        <tr>
+            <td><a href="#">学生信息查询</a></td>
+            <td><a href="#">学生信息添加</a></td>
+            <td><a href="#">学生信息修改</a></td>
+            <td><a href="#">教师信息查询</a></td>
+            <td><a href="#">教师信息添加</a></td>
+            <td><a href="#">教师信息修改</a></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<div class="middle">
+
+    <table border="3px">
         <tr>
             <th>编号</th>
             <th>姓名</th>
@@ -34,20 +47,20 @@
         </tr>
         <c:forEach items="${teachers}" var="teacher">
 
-        <tr>
-            <td><%--<c:out value="${teacher.id}"/> 两种方法都行--%>
+        <tr >
+            <td width="100px"><%--<c:out value="${teacher.id}"/> 两种方法都行--%>
                 ${teacher.id}
             </td>
-            <td>
+            <td width="100px">
                 <c:out value="${teacher.name}"/>
             </td>
-            <td>
+            <td width="100px">
                 <c:out value="${teacher.password}"/>
             </td>
-            <td class="update_delete">
+            <td class="update_delete" width="50px">
                 更改
             </td>
-            <td class="update_delete">
+            <td class="update_delete" width="50px">
                 删除
             </td>
         </tr>

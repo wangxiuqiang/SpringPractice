@@ -1,6 +1,10 @@
 package com.controller;
 
-import com.domain.*;
+import com.domain.Join;
+import com.domain.JoinTS;
+import com.domain.student;
+import com.domain.teacher;
+import com.domain.doIt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +35,7 @@ public class controller {
    登录页面用来登录 用join对象来提供管理员登录信息
     */
     @RequestMapping(value = "/join_in/{flag}")
-    public String JoinIn(Model model, Join join,JoinTS joinTS, @PathVariable int flag) {
+    public String JoinIn(Model model, Join join, JoinTS joinTS, @PathVariable int flag) {
 
         if(flag == 0 ){
             model.addAttribute("joinTS",joinTS);

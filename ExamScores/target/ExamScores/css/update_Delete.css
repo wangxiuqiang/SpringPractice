@@ -16,3 +16,20 @@
     text-decoration: underline;
     color: red;
 }
+
+.middle {
+    margin-left: 250px;
+    width: 500px;
+    background-color: rgba(192 ,192 ,192 ,0.6);
+}
+.daohang {
+    border: 2px dotted black;
+    background-color: cadetblue;
+}
+
+.daohang a{
+    text-decoration: none;
+}
+.daohang a:hover {
+    color: crimson;
+}
