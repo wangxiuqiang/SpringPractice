@@ -52,6 +52,35 @@ public class doIt {
         return students;
     }
 
+
+    /**
+     * 用来查询单个的学生信息
+     */
+    public student queryOneStudent(key key) throws Exception{
+         List<student> list = queryAllStudent();
+        int i;
+        for(i = 0; i < list.size(); i ++ ) {
+            if(key.getId() == list.get(i).getId()) {
+                break;
+            }
+        }
+        return list.get(i);
+    }
+    /**
+     * 用来查询单个的老师信息
+     */
+    public teacher queryOneTeacher(key key) throws Exception{
+        List<teacher> list = queryAllTeacher();
+        int i;
+        for(i = 0; i < list.size(); i ++ ) {
+            if(key.getId() == list.get(i).getId()) {
+                break;
+            }
+        }
+        return list.get(i);
+    }
+
+
     /**
      * 用来取出老师的登录信息
      * @return
@@ -88,4 +117,5 @@ public class doIt {
         }
         return false;
     }
+
 }

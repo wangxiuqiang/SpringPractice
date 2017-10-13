@@ -1,10 +1,6 @@
 package com.controller;
 
-import com.domain.Join;
-import com.domain.JoinTS;
-import com.domain.student;
-import com.domain.teacher;
-import com.domain.doIt;
+import com.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -120,16 +116,16 @@ public class controller {
     flag 代表是老师还是学生,1 是老师 ,0 代表学生
      */
     @RequestMapping(value="/add_information/{flag}")
-    public String addInformation(student student, teacher teacher , Model model , HttpServletRequest request, @PathVariable int flag){
+    public String addInformation(student student, teacher teacher , Model model ,@PathVariable int flag){
         if(flag == 1) {
             model.addAttribute("teacher" , teacher);
             model.addAttribute("flag" ,flag);
-            return "addInformation";
+            return "addInformationT";
         }
        else if(flag == 0) {
             model.addAttribute("student",student);
             model.addAttribute("flag" ,flag);
-            return "addInformation";
+            return "addInformationS";
         }
         else{
             return "failure";
@@ -176,7 +172,16 @@ public class controller {
      * 显示学生和老师的信息,1 表示老师,0  表示学生
      */
     @RequestMapping(value = "/query_Information/{flag}")
-    public String queryInformation(@PathVariable int flag , Model model){
+    public String queryInformation(@PathVariable int flag , Model model) throws Exception{
+        if(flag == 1) {
+            List<teacher> listTeacher = doIt.queryAllTeacher();
+            model.addAttribute("teachers",listTeacher);
+        }
+        if(flag == 0 ){
+            List<student> listStudent = doIt.queryAllStudent();
+            model.addAttribute("students",listStudent);
+        }
+        model.addAttribute("flag",flag);
         return "showInformation";
     }
 
@@ -186,13 +191,12 @@ public class controller {
      * 修改和删除的初始页面,如果返回的值是1,2, 就执行修改的部分,修改的部分也分为学生和老师,
      *              删除 一样 如果是0(学生),-1(老师),就执行delete的部分
      * @param model
-     * @param modelMap
      * @return
      * @throws Exception
      */
     @RequestMapping(value = "/update_delete/{flag}")
-    public String updateAndDelect(@PathVariable int flag ,Model model,ModelMap modelMap ) throws Exception {
-
+    public String updateAndDelect(@PathVariable int flag , Model model , key key) throws Exception {
+        model.addAttribute("key",key);
         //model 和 modelmap效果一样
         if(flag == -1 || flag == 2) {
             List<teacher> listTeacher = doIt.queryAllTeacher();
@@ -203,7 +207,23 @@ public class controller {
             model.addAttribute("students",listStudent);
         }
         model.addAttribute("flag",flag);
-
         return "updateAndDelete";
+    }
+    /*
+    修改和删除的单个页面,如果返回的值是1,2, 就执行修改的部分,修改的部分也分为学生和老师,
+     *              删除 一样 如果是0(学生),-1(老师),就执行delete的部分
+     */
+    @RequestMapping(value = "/OneQuery/{flag}")
+    public String queryOne(Model model , @PathVariable int flag , key key) throws Exception{
+        if(flag == 2 || flag == -1){
+            // 老师的genre查询
+            teacher teacher = doIt.queryOneTeacher(key);
+            model.addAttribute("teacher",teacher);
+        }else if(flag == 1 || flag == 0){
+            //学生的个人查询
+            student student = doIt.queryOneStudent(key);
+            model.addAttribute("student",student);
+        }
+        return "success";
     }
 }

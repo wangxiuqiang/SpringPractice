@@ -22,6 +22,7 @@ insert into teacher(id,password,name) values(3,'3','jhames');
 
 CREATE TABLE student(
 id int PRIMARY KEY NOT NULL,
+name char(20) NOT NULL,
 password varchar(20)  NOT NULL,
 class int  NOT NULL,
 classId int NOT NULL,

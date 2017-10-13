@@ -12,5 +12,8 @@
 </head>
 <body>
    添加成功  测试使用
+${teacher.id}
+${student.id}
+
 </body>
 </html>

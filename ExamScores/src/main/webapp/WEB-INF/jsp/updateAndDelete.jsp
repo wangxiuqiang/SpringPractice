@@ -8,6 +8,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%@ page isELIgnored="false"%>
 <html>
@@ -18,25 +19,34 @@
         <c:if test="${flag == 0}">删除学生信息</c:if>
         <c:if test="${flag == -1}">删除老师信息</c:if>
     </title>
-    <style type=" text/css" >
+    <style type="text/css" >
         @import  url("<c:url value="/css/update_Delete.css"/>");
     </style>
 </head>
 <body>
-<div class="header">插个图片</div>
+<div class="header"></div>
 <div class="daohang">
-    <table>
+    <table border="0.8px" >
         <tr>
-            <td><a href="#">学生信息查询</a></td>
-            <td><a href="#">学生信息添加</a></td>
-            <td><a href="#">学生信息修改</a></td>
-            <td><a href="#">教师信息查询</a></td>
-            <td><a href="#">教师信息添加</a></td>
-            <td><a href="#">教师信息修改</a></td>
-            <td></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/0">学生信息查询</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/addSubmit_Information/0">学生信息添加</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/1">学生信息修改</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/1">教师信息查询</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/addSubmit_Information/1">教师信息添加</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/2">教师信息修改</a></td>
+
+              <form:form action="${pageContext.request.contextPath}/OneQuery/${flag}" method="post" cssClass="" commandName="key">
+                  <td width="110px">
+                   <form:input type="text" width="50px" path="id" />
+                   <input type="submit" value="搜索" />
+               </td>
+              </form:form>
+
         </tr>
     </table>
 </div>
+
+<c:if test="${flag==2 || flag == -1}">
 <div class="middle">
 
     <table border="3px">
@@ -57,16 +67,56 @@
             <td width="100px">
                 <c:out value="${teacher.password}"/>
             </td>
-            <td class="update_delete" width="50px">
-                更改
+            <td  width="50px">
+               <a href="#/${teacher.id}" class="update_delete">更改</a>
             </td>
-            <td class="update_delete" width="50px">
-                删除
+            <td  width="50px">
+                <a href="#/${teacher.id}" class="update_delete">删除</a>
             </td>
         </tr>
         </c:forEach>
     </table>
 </div>
-<div class="footer">图片</div>
+</c:if>
+<c:if test="${flag== 0 || flag == 1}" >
+    <div class="middle">
+
+        <table border="3px">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>班级</th>
+                <th>班级编号</th>
+            </tr>
+            <c:forEach items="${students}" var="student">
+                <tr >
+                    <td width="70px"><%--<c:out value="${teacher.id}"/> 两种方法都行--%>
+                            ${student.id}
+                    </td>
+                    <td width="70px">
+                        <c:out value="${student.name}"/>
+                    </td>
+                    <td width="70px">
+                        <c:out value="${student.password}"/>
+                    </td>
+                    <td width="70px">
+                        <c:out value="${student.className}"/>
+                    </td>
+                    <td width="70px">
+                        <c:out value="${student.classId}"/>
+                    </td>
+                    <td width="50px">
+                        <a class="update_delete" href="#/${student.id}">更改</a>
+                    </td>
+                    <td width="50px">
+                        <a href="#/${student.id}"  class="update_delete">删除</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+</c:if>
+<div class="footer"></div>
 </body>
 </html>
