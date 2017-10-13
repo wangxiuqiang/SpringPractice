@@ -17,10 +17,10 @@
     <table border="0.8px" >
         <tr>
             <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/0">学生信息查询</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/addSubmit_Information/0">学生信息添加</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/add_information/0">学生信息添加</a></td>
             <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/1">学生信息修改</a></td>
             <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/1">教师信息查询</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/addSubmit_Information/1">教师信息添加</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/add_information/1">教师信息添加</a></td>
             <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/2">教师信息修改</a></td>
             <td width="110px"></td>
         </tr>
@@ -72,7 +72,7 @@
                         ${student.id}
                 </td>
                 <td width="100px">
-                    <c:out value="${students.name}"/>
+                    <c:out value="${student.name}"/>
                 </td>
                 <td width="100px">
                     <c:out value="${student.password}"/>

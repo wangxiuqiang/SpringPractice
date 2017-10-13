@@ -26,4 +26,20 @@
         SELECT  id,password FROM  student;
     </select>
 
+<!--录入学生和老师的信息-->
+    <insert id="insertT" parameterType="com.domain.teacher">
+        INSERT teacher(id,name,password) values(#{id},#{name},#{password});
+    </insert>
+    <insert id="insertS" parameterType="com.domain.student">
+        INSERT student(id,name,password,className,classId) values(#{id},#{name},#{password},#{className},#{classId})
+    </insert>
+
+    <!--删除单个的信息-->
+    <delete id="delete_T"  parameterType="java.lang.Integer" >
+        DELETE FROM teacher WHERE id = #{id};
+    </delete>
+
+    <delete id="delete_S"  parameterType="java.lang.Integer" >
+        DELETE FROM student WHERE id = #{id};
+    </delete>
 </mapper>

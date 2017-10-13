@@ -118,4 +118,47 @@ public class doIt {
         return false;
     }
 
+    /**
+     * 录入老师的信息
+     */
+    public void insertT(teacher teacher) throws Exception{
+        SetUp();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        adminService adminService = sqlSession.getMapper(com.service.adminService.class);
+        adminService.insertT(teacher);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    /**
+     * 录入学生信息
+     * @param student
+     * @throws Exception
+     */
+    public void insertS(student student) throws Exception {
+        SetUp();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        adminService adminService = sqlSession.getMapper(com.service.adminService.class);
+        adminService.insertS(student);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    /**
+     * 删除信息,根据flag  1老师 0 学生
+     *
+     */
+    public void delete_TS( int flag ,int id) throws Exception{
+        SetUp();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        adminService adminService = sqlSession.getMapper(com.service.adminService.class);
+        if(flag == 1)
+        {
+            adminService.delete_T(id);
+        }else{
+            adminService.delete_S(id);
+        }
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }

@@ -29,10 +29,10 @@
     <table border="0.8px" >
         <tr>
             <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/0">学生信息查询</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/addSubmit_Information/0">学生信息添加</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/add_information/0">学生信息添加</a></td>
             <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/1">学生信息修改</a></td>
             <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/1">教师信息查询</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/addSubmit_Information/1">教师信息添加</a></td>
+            <td width="110px"><a href="${pageContext.request.contextPath}/add_information/1">教师信息添加</a></td>
             <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/2">教师信息修改</a></td>
 
               <form:form action="${pageContext.request.contextPath}/OneQuery/${flag}" method="post" cssClass="" commandName="key">
@@ -68,10 +68,10 @@
                 <c:out value="${teacher.password}"/>
             </td>
             <td  width="50px">
-               <a href="#/${teacher.id}" class="update_delete">更改</a>
+               <a href="${pageContext.request.contextPath}/update_TS/1/${teacher.id}" class="update_delete">更改</a>
             </td>
             <td  width="50px">
-                <a href="#/${teacher.id}" class="update_delete">删除</a>
+                <a href="${pageContext.request.contextPath}/delete_TS/1/${teacher.id}" class="update_delete">删除</a>
             </td>
         </tr>
         </c:forEach>
@@ -107,10 +107,10 @@
                         <c:out value="${student.classId}"/>
                     </td>
                     <td width="50px">
-                        <a class="update_delete" href="#/${student.id}">更改</a>
+                        <a class="update_delete" href="${pageContext.request.contextPath}/update_TS/0/${student.id}">更改</a>
                     </td>
                     <td width="50px">
-                        <a href="#/${student.id}"  class="update_delete">删除</a>
+                        <a href="${pageContext.request.contextPath}/delete_TS/0/${student.id}"  class="update_delete">删除</a>
                     </td>
                 </tr>
             </c:forEach>

@@ -136,7 +136,7 @@ public class controller {
         点击提交后的信息录入数据库
      */
     @RequestMapping(value = "addSubmit_Information/{flag}")
-    public String addSuccessOrFailure(@PathVariable int flag,student student, teacher teacher, RedirectAttributes redirect ){
+    public String addSuccessOrFailure(@PathVariable int flag,student student, teacher teacher, RedirectAttributes redirect ) throws  Exception{
 
         redirect.addFlashAttribute("flag",flag);
         if(flag == 1) {
@@ -145,6 +145,7 @@ public class controller {
             }
             else {
                 //执行写入函数 参数为teacher
+                doIt.insertT(teacher);
                 redirect.addFlashAttribute("teacher", teacher);
                 return "redirect:/success_add";//防止出现刷新页面再次添加的事件,用重定向
             }
@@ -153,6 +154,7 @@ public class controller {
             if(student == null){
                 return "failure";
             }else {
+                doIt.insertS(student);
                 redirect.addFlashAttribute("student", student);
                 return "redirect:/success_add";
             }
@@ -224,6 +226,16 @@ public class controller {
             student student = doIt.queryOneStudent(key);
             model.addAttribute("student",student);
         }
+        return "success";
+    }
+
+    /*
+    单个删除 学生0, 老师1的信息
+     */
+    @RequestMapping(value = "/delete_TS/{flag}/{id}")
+    public String delete_TS(@PathVariable int id,@PathVariable int flag) throws Exception{
+
+        doIt.delete_TS(flag ,id);
         return "success";
     }
 }
