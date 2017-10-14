@@ -161,4 +161,19 @@ public class doIt {
         sqlSession.commit();
         sqlSession.close();
     }
+    /*
+    更新 信息
+     */
+    public void update_TS(int flag,teacher teacher,student student) throws Exception{
+        SetUp();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        adminService adminService = sqlSession.getMapper(com.service.adminService.class);
+        if(flag == 1){
+                 adminService.update_T(teacher);
+        }else {
+              adminService.update_S(student);
+        }
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }

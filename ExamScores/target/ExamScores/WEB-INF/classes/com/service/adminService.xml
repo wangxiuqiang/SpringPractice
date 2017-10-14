@@ -42,4 +42,13 @@
     <delete id="delete_S"  parameterType="java.lang.Integer" >
         DELETE FROM student WHERE id = #{id};
     </delete>
+
+    <!--修改单个的信息-->
+    <select id="update_T" parameterType="com.domain.teacher" >
+        update teacher SET id = #{id} ,name = #{name} , password = #{password} WHERE  id = #{id};
+    </select>
+    <select id="update_S" parameterType="com.domain.student" >
+        update student SET id = #{id} ,name = #{name} , password = #{password}
+        , className = #{className} , classId = #{classId} WHERE  id = #{id};
+    </select>
 </mapper>

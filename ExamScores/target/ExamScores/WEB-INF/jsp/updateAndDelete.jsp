@@ -28,18 +28,19 @@
 <div class="daohang">
     <table border="0.8px" >
         <tr>
-            <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/0">学生信息查询</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/add_information/0">学生信息添加</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/1">学生信息修改</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/query_Information/1">教师信息查询</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/add_information/1">教师信息添加</a></td>
-            <td width="110px"><a href="${pageContext.request.contextPath}/update_delete/2">教师信息修改</a></td>
+            <td width="120px"><a href="${pageContext.request.contextPath}/query_Information/0">学生信息查询</a></td>
+            <td width="120px"><a href="${pageContext.request.contextPath}/add_information/0">学生信息添加</a></td>
+            <td width="120px"><a href="${pageContext.request.contextPath}/update_delete/1">学生信息修改</a></td>
+            <td width="120px"><a href="${pageContext.request.contextPath}/query_Information/1">教师信息查询</a></td>
+            <td width="120px"><a href="${pageContext.request.contextPath}/add_information/1">教师信息添加</a></td>
+            <td width="120px"><a href="${pageContext.request.contextPath}/update_delete/2">教师信息修改</a></td>
 
               <form:form action="${pageContext.request.contextPath}/OneQuery/${flag}" method="post" cssClass="" commandName="key">
-                  <td width="110px">
-                   <form:input type="text" width="50px" path="id" />
-                   <input type="submit" value="搜索" />
+                  <td width="100px" >
+                     <form:input  width="60px" path="id" placeholder="请输入要查询的编号"/>
+
                </td>
+                  <td width="50px"> <input type="submit" value="搜索" width="30px"/></td>
               </form:form>
 
         </tr>

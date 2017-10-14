@@ -238,4 +238,36 @@ public class controller {
         doIt.delete_TS(flag ,id);
         return "success";
     }
+    /**
+     * 更改信息 ,单个改1老师 0学生 跳转到修改页面
+     */
+    @RequestMapping("/update_TS/{flag}/{id}")
+    public String update_TS(@PathVariable int id, @PathVariable int flag,Model model
+                          ) throws  Exception{
+        key key = new key();
+        key.setId(id);
+           if(flag  == 1){
+              teacher teacher = doIt.queryOneTeacher(key);
+              model.addAttribute("teacher",teacher);
+               return "update_oneT";
+           }else {
+               student student =  doIt.queryOneStudent(key);
+               model.addAttribute("student",student);
+               return "update_oneS";
+           }
+    }
+    /**
+     * 更改信息 ,正式更改,跳转到成功页面
+     */
+    @RequestMapping(value = "/update_success/{flag}")
+    public String updateSuccess(Model model,teacher teacher,student student,@PathVariable int flag) throws  Exception{
+        if(flag == 1) {
+           doIt.update_TS(flag ,teacher,student);
+           return "redirect:/success_add";
+        }
+        else{
+            doIt.update_TS(flag,teacher ,student);
+            return "redirect:/success_add";
+        }
+    }
 }

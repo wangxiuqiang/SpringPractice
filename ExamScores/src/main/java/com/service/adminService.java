@@ -18,5 +18,7 @@ public interface adminService {
     public void insertS(student student) throws Exception;
     public void delete_T(int id) throws Exception;
     public void delete_S(int id) throws Exception;
+    public void update_T(teacher teacher) throws Exception;
+    public void update_S(student student) throws Exception;
 
 }
