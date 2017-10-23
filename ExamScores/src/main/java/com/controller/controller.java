@@ -67,7 +67,7 @@ public class controller {
             else{
                 boolean tOrf = doIt.joinMessageTeacher(joinTS);
                 if (tOrf == true){
-                    return "success";
+                    return "teacher_joinIn";
                 }else {
                     return "failure";
                 }
@@ -270,4 +270,22 @@ public class controller {
             return "redirect:/success_add";
         }
     }
+
+    /**
+     * teacher 准备查询单个的学生,跳入单个学生的查询界面
+     */
+    @RequestMapping(value = "/teacher_selectOne")
+    public String teacher_selectOne(key key ,Model  model) {
+        model.addAttribute("key" ,key);
+        return "teacher_selectOne";
+    }
+    /**
+     * 上面跳转到页面后的查询
+     */
+    @RequestMapping("/teacher_selectSuccess")
+    public String teacher_selectOneSuccess(Model model ,key key) throws Exception {
+        
+        return "success";
+    }
+
 }
