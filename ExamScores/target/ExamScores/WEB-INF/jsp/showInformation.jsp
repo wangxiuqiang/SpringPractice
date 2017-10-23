@@ -22,7 +22,6 @@
             <td width="120px"><a href="${pageContext.request.contextPath}/query_Information/1">教师信息查询</a></td>
             <td width="120px"><a href="${pageContext.request.contextPath}/add_information/1">教师信息添加</a></td>
             <td width="120px"><a href="${pageContext.request.contextPath}/update_delete/2">教师信息修改</a></td>
-            <td width="150px"></td>
         </tr>
     </table>
 </div>
@@ -54,7 +53,7 @@
 </div>
 </c:if>
 <!--显示学生信息     -->
-<c:if test="${flag== 0 }" >
+<c:if test="${flag== 20 }" >
 <div class="middle">
 
     <table border="3px">
@@ -76,6 +75,40 @@
                 </td>
                 <td width="100px">
                     <c:out value="${student.password}"/>
+                </td>
+                <td width="100px">
+                    <c:out value="${student.className}"/>
+                </td>
+                <td width="100px">
+                    <c:out value="${student.classId}"/>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
+</c:if>
+<%--从老师页面查询得时候输出的格式--%>
+<c:if test="${flag== 0 }" >
+<div class="middle">
+
+    <table border="3px">
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>成绩</th>
+            <th>班级</th>
+            <th>状况</th>
+        </tr>
+        <c:forEach items="${students}" var="student">
+            <tr >
+                <td width="100px"><%--<c:out value="${teacher.id}"/> 两种方法都行--%>
+                        ${student.id}
+                </td>
+                <td width="100px">
+                    <c:out value="${student.name}"/>
+                </td>
+                <td width="100px">
+                    <c:out value="${student.score}"/>
                 </td>
                 <td width="100px">
                     <c:out value="${student.className}"/>

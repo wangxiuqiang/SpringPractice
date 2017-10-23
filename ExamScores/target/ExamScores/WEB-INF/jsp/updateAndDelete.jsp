@@ -38,7 +38,6 @@
               <form:form action="${pageContext.request.contextPath}/OneQuery/${flag}" method="post" cssClass="" commandName="key">
                   <td width="100px" >
                      <form:input  width="60px" path="id" placeholder="请输入要查询的编号"/>
-
                </td>
                   <td width="50px"> <input type="submit" value="搜索" width="30px"/></td>
               </form:form>

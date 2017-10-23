@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: wangxiuqiang
-  Date: 17-10-23
-  Time: 下午2:39
-  To change this template use File | Settings | File Templates.
+     教师登录后的信息
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
@@ -48,18 +44,25 @@
                                 <tr>&nbsp;</tr>
                                 <tr>
                                     <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" target="_blank">
-                                        <input type="submit" name="submit2" value="录入成绩" maxlength="8" size="20"/>
+                                        <input type="submit"  value="录入成绩" size="16"/>
                                     </a>
                                     </td>
 
 
                                     <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" target="_blank">
-                                        <input type="submit" name="submit3" value="补考名单" maxlength="8" size="20"/>
+                                        <input type="submit"  value="补考名单"  size="16"/>
                                     </a></td>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/query_Information/0" target="_blank">
-                                        <input type="submit" name="submit" value="查询学生信息" maxlength="8" size="20"/>
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" target="_blank">
+                                        <input type="submit"  value="查询学生信息" size="16"/>
                                     </a></td>
 
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/teacher_changePasswd" target="_blank">
+
+                                        <input type="submit"  value="更改密码"  size="16"/>
+                                    </a>
+                                    </td></tr>
                             </table>
 
                         </div>

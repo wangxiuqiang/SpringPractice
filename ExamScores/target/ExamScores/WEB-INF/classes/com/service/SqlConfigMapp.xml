@@ -23,5 +23,6 @@
         <!--用class的方式加载mapper配置文件 , 遵循规范 1,xml文件的名字和接口名字一样
         2, 1的前提是必须遵循mapper开发的规范 -->
         <mapper class="com.service.adminService"/>
+        <mapper class="com.service.teacherService"/>
     </mappers>
 </configuration>

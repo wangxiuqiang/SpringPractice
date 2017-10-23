@@ -4,11 +4,10 @@ import com.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import javax.servlet.http.HttpServletRequest;
+
 import java.util.List;
 
 /**
@@ -79,7 +78,7 @@ public class controller {
             else{
                 boolean tOrf = doIt.joinMessageStudent(joinTS);
                 if (tOrf == true){
-                    return "success";
+                    return "/WEB-INF/jsp/student_joinIN.jsp";
                 }else {
                     return "failure";
                 }
@@ -271,6 +270,13 @@ public class controller {
         }
     }
 
+
+
+
+    @Autowired
+    public   doItTea doItTea;
+
+
     /**
      * teacher 准备查询单个的学生,跳入单个学生的查询界面
      */
@@ -284,8 +290,24 @@ public class controller {
      */
     @RequestMapping("/teacher_selectSuccess")
     public String teacher_selectOneSuccess(Model model ,key key) throws Exception {
-        
-        return "success";
+       student student = doItTea.queryOneStu(key);
+       model.addAttribute("student",student);
+        return "update_oneS";
     }
 
+    @RequestMapping("/teacher_changePasswd")
+    public String teacher_changePasswd(Model model , teacher teacher) {
+        model.addAttribute("teacher" ,teacher);
+        return "teacher_changePasswd";
+    }
+    @RequestMapping("/teacher_changePasswdSuccess")
+    public String teacher_changePasswdSuccess(Model model ,teacher teacher) throws Exception{
+        if(teacher.getName().equals(teacher.getPassword()) ){
+            doItTea.update_T(teacher);
+            return "redirect:/success_add";
+        }else {
+            return "failure";
+        }
+
+    }
 }
