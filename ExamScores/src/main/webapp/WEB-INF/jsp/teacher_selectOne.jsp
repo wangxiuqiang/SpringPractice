@@ -23,11 +23,9 @@
     <div class="line"><span></span></div>
     <div class="location"><img src="${pageContext.request.contextPath}/images/location.png" class="img-responsive" alt="" /></div>
     <form:form commandName="key" method="post" >
-             <form:input  placehodler="学号" htmlEscape="true" path="id" />
-        <div class="submit"><input type="submit" onClick="myFunction()" value="查询"  >
-            <select name="查询"  >
-            <script type="text/javascript">function myFunction(){  window.location.href='techer_writeOne'}</script>
-            </select>
+             <form:input  placehodler="学号" htmlEscape="true" path="id" action=""/>
+        <div class="submit">
+            <input type="submit" value="查询"  >
         </div>
        </form:form>
 

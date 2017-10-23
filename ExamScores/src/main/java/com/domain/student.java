@@ -10,7 +10,7 @@ public class student {
     private int classId;
     private String password;
     private String date;
-    private float score;
+    private float groud;
     private int examId;
     private int examIdNum;
 
@@ -62,12 +62,12 @@ public class student {
         this.date = date;
     }
 
-    public float getScore() {
-        return score;
+    public float getGroud() {
+        return groud;
     }
 
-    public void setScore(float score) {
-        this.score = score;
+    public void setGroud(float groud) {
+        this.groud = groud;
     }
 
     public int getExamId() {

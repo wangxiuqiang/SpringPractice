@@ -3,6 +3,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,15 +29,15 @@
         </h1>
     </div>
     <div class="container">
-        <form class="contact" action="#" method="post" id="form">
+        <form:form class="contact" action="#" commandName="stu" htmlEscape="true" method="post" id="form">
             <div class="row clearfix">
                 <div class="lbl">
                     <label for="name">
                         姓名</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="name" name="name" data-required="true" data-validation="text"
-                    >
+                    <form:input  path="name" id="name" name="name" data-required="true" data-validation="text"
+                    htmlEscape="true" placeholder="${stu.name}" readOnly="true"/>
                 </div>
             </div>
             <div class="row clearfix">
@@ -45,8 +46,8 @@
                         学号</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="email" name="email" data-required="true" data-validation="id"
-                    >
+                    <form:input path="id" id="email" name="email" data-required="true" data-validation="id"
+                    htmlEscape="true" placehold="${stu.id}" readOnly="true"/>
                 </div>
             </div>
             <div class="row clearfix">
@@ -55,7 +56,8 @@
                         班级</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" id="class" name="class" data-required="true" data-validation="custom" >
+                    <form:input path="className" id="class" name="class" data-required="true" data-validation="custom"
+                             htmlEscape="true"  placeholder="${stu.className}" readOnly="true"/>
                 </div>
             </div>
             <div class="row clearfix">
@@ -64,7 +66,7 @@
                         科目</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" name="subject" id="subject">
+                    <input type="text" name="subject" id="subject" placeholder="语文" readonly/>
                 </div>
             </div>
             <div class="row clearfix">
@@ -73,7 +75,8 @@
                         成绩</label>
                 </div>
                 <div class="ctrl">
-                    <input type="text" name="grade" id="grade" >
+                    <form:input  name="grade"  path="groud" id="grade" htmlEscape="true"
+                    />
                 </div>
             </div>
             <div align="center">
@@ -81,8 +84,7 @@
                     <input type="submit"  value="确定" style="height: 40px; width: 80px;"  />
                 </a>
             </div>
-            </button>
-        </form>
+        </form:form>
 
     </div>
 </section>

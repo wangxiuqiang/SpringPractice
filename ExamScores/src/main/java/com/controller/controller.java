@@ -277,23 +277,23 @@ public class controller {
     public   doItTea doItTea;
 
 
-    /**
-     * teacher 准备查询单个的学生,跳入单个学生的查询界面
-     */
-    @RequestMapping(value = "/teacher_selectOne")
-    public String teacher_selectOne(key key ,Model  model) {
-        model.addAttribute("key" ,key);
-        return "teacher_selectOne";
-    }
-    /**
-     * 上面跳转到页面后的查询
-     */
-    @RequestMapping("/teacher_selectSuccess")
-    public String teacher_selectOneSuccess(Model model ,key key) throws Exception {
-       student student = doItTea.queryOneStu(key);
-       model.addAttribute("student",student);
-        return "update_oneS";
-    }
+//    /**
+//     * teacher 准备查询单个的学生,跳入单个学生的查询界面  取消了
+//     */
+//    @RequestMapping(value = "/teacher_selectOne")
+//    public String teacher_selectOne(key key ,Model  model) {
+//        model.addAttribute("key" ,key);
+//        return "teacher_selectOne";
+//    }
+//    /**
+//     * 上面跳转到页面后的查询  取消这个了
+//     */
+//    @RequestMapping("/teacher_selectSuccess")
+//    public String teacher_selectOneSuccess(Model model ,key key) throws Exception {
+//       student student = doItTea.queryOneStu(key);
+//       model.addAttribute("student",student);
+//        return "update_oneS";
+//    }
 
     @RequestMapping("/teacher_changePasswd")
     public String teacher_changePasswd(Model model , teacher teacher) {
@@ -310,4 +310,27 @@ public class controller {
         }
 
     }
+
+    /**
+     * 调取全部的学生信息
+     * @param model
+
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/teacher_allSelectStu")
+    public String teacher_allSelectStu(Model model ) throws Exception{
+      List<student> listStu = doItTea.queryAllStudent();
+      model.addAttribute("listStu" ,listStu);
+      return "teacher_allSelectStu";
+    }
+    /**
+     * 用来将修改成绩  ,单个修改
+     */
+     @RequestMapping("/teacher_writeScoreOne/{id}")
+    public String teacher_writeScoreOne(Model model,@PathVariable int id) throws Exception{
+         student student = doItTea.queryOneStu(id);
+         model.addAttribute("stu" ,student);
+         return "teacher_writeScoreOne";
+     }
 }

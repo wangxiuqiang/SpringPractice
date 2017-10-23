@@ -5,11 +5,12 @@
 <mapper namespace="com.service.teacherService">
     <!--查询单个的学生进行-->
     <select id="queryOneStu" parameterType="int" resultType="student">
-        select name,id,className from student WHERE id = #{id}
+        select name,id,className,name,groud from student WHERE id = #{id}
     </select>
 
     <!--老师改密码-->
     <select id="update_T" parameterType="com.domain.teacher" >
         update teacher SET password = #{password} WHERE  id = #{id};
     </select>
+
 </mapper>
