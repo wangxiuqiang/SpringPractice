@@ -14,7 +14,7 @@
             <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
             <!-- Main Style -->
-            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
         </head>
 
 <body>
@@ -44,22 +44,31 @@
 
                         </div>
                     <table >
-                        <th>编号</th>
-                        <th>姓名</th>
-                        <th>班级</th>
-                        <th>科目</th>
-                        <th>成绩</th>
-                        <th>状态</th>
+                        <th height="3
+
+
+
+
+0px" style="font-size: 10px;">编号</th>
+                        <th height="30px" width="50px" style="font-size: 10px">姓名</th>
+                        <th height="30px" width="50px" style="font-size: 10px;">班级</th>
+                        <th height="30px" width="50px" style="font-size: 10px;">科目</th>
+                        <th height="30px" width="50px" style="font-size: 10px;">成绩</th>
+                        <th height="30px" width="50px" style="font-size: 10px;">状态</th>
                         <c:forEach items="${listStu}" var="stu" >
                             <tr>
-                                <td width="30px" valign="center">${stu.id}</td>
-                                <td width="30px" valign="center">${stu.name}</td>
-                                <td width="30px" valign="center">${stu.className}</td>
-                                <td width="30px" valign="center">语文</td>
-                                <td width="30px" valign="center">${stu.groud}</td>
-                                <a href="">
-                                    <td>更改</td>
-                                </a>
+                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                        ${stu.id}</td>
+                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                        ${stu.name}</td>
+                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                        ${stu.className}</td>
+                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                    语文</td>
+                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                        ${stu.groud}</td>
+                                <td><a href="${pageContext.request.contextPath}/teacher_writeScoreOne/${stu.id}">更改 </a></td>
+
                             </tr>
                         </c:forEach>
 

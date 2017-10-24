@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
+
 </head>
 
 <body>
@@ -38,15 +39,13 @@
 
                             </ul>
                         </div>
-
                     </div>
                 </div>
-
+                <form:form commandName="teacher" htmlEscape="true" method="post" action="teacher_changePasswdSuccess">
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="pricing-table">
                         <div class="pricing-header">
                             <p class="pricing-title">教师更改密码</p>
-                    <form:form commandName="teacher" htmlEscape="true" method="post" action="teacher_changePasswdSuccess">
                             <table cellpadding="5">
                                 <tr>&nbsp;</tr>
                                 <tr>
@@ -71,13 +70,13 @@
                                     </td>
                                 </tr>
                             </table>
-                    </form:form>
+
                         </div>
 
 
                     </div>
                 </div>
-
+                </form:form>
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="pricing-table">
                         <img src="${pageContext.request.contextPath}/images/22.jpg">
@@ -94,6 +93,7 @@
         </div>
     </div>
 </section>
+
 <!-- Pricing Table Section End -->
 </body>
 </html>

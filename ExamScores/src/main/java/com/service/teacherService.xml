@@ -12,5 +12,9 @@
     <select id="update_T" parameterType="com.domain.teacher" >
         update teacher SET password = #{password} WHERE  id = #{id};
     </select>
+    <!--更改学生的成绩-->
+    <select id="writeScore" parameterType="com.domain.student" >
+        update student SET groud= #{groud} WHERE  id = #{id};
+    </select>
 
 </mapper>

@@ -78,7 +78,7 @@ public class controller {
             else{
                 boolean tOrf = doIt.joinMessageStudent(joinTS);
                 if (tOrf == true){
-                    return "/WEB-INF/jsp/student_joinIN.jsp";
+                    return "student_joinIN";
                 }else {
                     return "failure";
                 }
@@ -325,7 +325,7 @@ public class controller {
       return "teacher_allSelectStu";
     }
     /**
-     * 用来将修改成绩  ,单个修改
+     * 用来将修改成绩  ,单个修改,用来显示一个学生的信息
      */
      @RequestMapping("/teacher_writeScoreOne/{id}")
     public String teacher_writeScoreOne(Model model,@PathVariable int id) throws Exception{
@@ -333,4 +333,13 @@ public class controller {
          model.addAttribute("stu" ,student);
          return "teacher_writeScoreOne";
      }
+    /**
+     * 表单提交过来之后,进行数据库修改
+     * 添加成绩成功,之后跳转到teacher_selectAllstu,
+     */
+    @RequestMapping("/teacher_writerSuccess")
+    public String teacher_writerSuccess (student stu) throws Exception {
+        doItTea.writeScore(stu);
+        return "redirect:/teacher_allSelectStu";
+    }
 }

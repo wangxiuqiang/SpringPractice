@@ -8,5 +8,6 @@ import java.util.List;
 public interface teacherService {
     public student queryOneStu(int id) throws Exception;
     public teacher update_T(teacher teacher) throws  Exception;
+    public void writeScore(student student) throws Exception;
 
 }

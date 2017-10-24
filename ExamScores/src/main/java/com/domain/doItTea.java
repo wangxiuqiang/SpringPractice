@@ -3,6 +3,7 @@ package com.domain;
 import com.service.adminService;
 import com.service.teacherService;
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class doItTea {
@@ -55,6 +57,17 @@ public class doItTea {
         List<student> students = adminService.queryAllForStudent();
         sqlSession.close();
         return students;
+    }
+
+    /**
+     * 修改学生的成绩,第一次或第n次
+     */
+    public void writeScore(student student) throws Exception{
+        SetUp();;
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        teacherService teacherService = sqlSession.getMapper(com.service.teacherService.class);
+        teacherService.writeScore(student);
+        sqlSession.close();
     }
 
 }
