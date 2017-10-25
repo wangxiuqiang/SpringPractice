@@ -35,19 +35,17 @@
 <h1>学生报考</h1>
 
 <div class="container w3layouts agileits">
-
-    <h2></h2>
-    <form action="#" method="post">
-        <input type="text" Name="Subject" onFocus="javascript:this.value=''" placeholder="报考科目" id="Subject" required="">
-        <input type="text" Name="Name" onFocus="javascript:this.value=''" placeholder="学生姓名" id="Name" required="">
-        <input type="text" Name="Userame" onFocus="javascript:this.value=''" placeholder="学号" id="Userame" required="">
-    </form>
+    <form:form action="${pageContext.request.contextPath}/student_examSuccess/${stu.id}" method="post" commandName="stu">
+    <form:input path="lesson" placeholder="语文" id="Subject" />
+    <form:input path="id"   placeholder="学号" id="Userame" value=""/>
+    <form:input path="name" placeholder="学生姓名" id="Name" />
     <div class="send-button w3layouts agileits">
-        <form>
+
             <input type="submit" value="报考"  />
 
-        </form>
+
     </div>
+    </form:form>
 </div>
 
 

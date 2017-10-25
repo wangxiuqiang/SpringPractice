@@ -11,13 +11,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Startup Framework Inspired Pricing Table</title>
+    <title>学生成绩查询</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
 
 </head>
 
@@ -48,22 +48,35 @@
                             <table cellpadding="5">
                                 <tr>&nbsp;</tr>
                                 <tr>
-                                    <td>请输入要查询的学号:</td>
-                                    <td><input name="mingzi" type="text" maxlength="8" size="20"/></td>
+                                    <td>学号:</td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.id}" readonly/></td>
                                 </tr>
 
                                 <tr>
+                                    <td>班级:</td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.className}" readonly/></td>
+                                </tr>
+                                <tr>
+                                    <td>姓名:</td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.name}" readonly/></td>
+                                </tr>
+                                <tr>
+                                    <td>科目:</td>
+                                    <td><input type="text" maxlength="8" size="20" value="语文" readonly/></td>
+                                </tr>
+                                <tr>
+                                    <td>成绩:</td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.groud}" readonly/></td>
+                                </tr>
+                                <tr>
                                     <td></td>
-                                    <td colspan="2" align="center"><a href="log on.html" target="_blank">
-                                        <input type="submit" name="submit3" value="确认" maxlength="8" size="20"/>
+                                    <td colspan="2" align="center"><a href="${pageContext.request.contextPath}/student_backJoinIN/${stu.id}" target="_blank">
+                                        <input type="submit" name="submit3" value="返回" maxlength="8" size="20"/>
                                     </a>&nbsp;
-                                        <a href="log on.html" target="_blank"><input type="submit" name="submit2" value="重置" /></a>                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                                 </tr>
                             </table>
 
                         </div>
-
-
                     </div>
                 </div>
 

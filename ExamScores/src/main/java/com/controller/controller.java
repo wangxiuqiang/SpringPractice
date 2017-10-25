@@ -59,6 +59,7 @@ public class controller {
      */
     @RequestMapping(value = "/tsJoin_in/{flag}")
     public String WhoJoinIn(@PathVariable int flag , Model model,JoinTS joinTS) throws  Exception{
+        model.addAttribute("joinTs",joinTS);
         if(flag == 1){
             if(joinTS == null){
                 return "failure";
@@ -295,6 +296,12 @@ public class controller {
 //        return "update_oneS";
 //    }
 
+    /**
+     * 教师更改密码,,密码更改完成,下面的两个
+     * @param model
+     * @param teacher
+     * @return
+     */
     @RequestMapping("/teacher_changePasswd")
     public String teacher_changePasswd(Model model , teacher teacher) {
         model.addAttribute("teacher" ,teacher);
@@ -341,5 +348,70 @@ public class controller {
     public String teacher_writerSuccess (student stu) throws Exception {
         doItTea.writeScore(stu);
         return "redirect:/teacher_allSelectStu";
+    }
+
+
+
+
+    /**
+     * 学生查询成绩的控制,  传过来的独立路径是要求的编号,直接查出来返回
+     */
+    @RequestMapping("/student_scoreSelect/{id}")
+    public String student_scoreSelect(Model model,@PathVariable int id) throws Exception{
+        student student = doItTea.queryOneStu(id);
+        model.addAttribute("stu" ,student);
+        return "student_scoreQuery";
+    }
+
+    /**
+     * 考试报名,
+     */
+    @RequestMapping(value = "/student_exam" )
+    public String student_exam(Model model, student student) {
+        model.addAttribute("stu",student);
+        return "student_exam";
+    }
+
+
+    @Autowired
+    doItStu doItStu;
+    /**
+     * 报名成功显示报名信息  ,
+     */
+    @RequestMapping("/student_examSuccess/{id}")
+    public String student_examSuccess(@PathVariable int id, student student,Model model) throws Exception{
+        doItStu.writeInfoExam(id);
+        student student1 = doItTea.queryOneStu(id);
+        model.addAttribute("stu", student1);
+        return "student_examSuccess";
+    }
+
+
+    /*
+      学生更改密码
+     */
+    @RequestMapping(value = "/student_changePasswd")
+    public String student_changePasswd(Model model,student student) throws Exception{
+        model.addAttribute("stu",student);
+        return "student_changePasswd";
+    }
+    @RequestMapping("/student_changePasswdSuccess")
+    public String student_changePasswdSuccess(Model model ,student student) throws Exception{
+        if(student.getName().equals(student.getPassword()) ){
+            doItStu.update_S(student);
+            return "redirect:/success_add";
+        }else {
+            return "failure";
+        }
+
+    }
+
+    /**
+     * 返回登录后的界面
+     * @return
+     */
+    @RequestMapping(value = "/student_backJoinIN")
+    public String student_backJoinIN() {
+        return "student_joinIN";
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.studentService">
+
+    <select id="writeInfoExam" parameterType="int" >
+        UPDATE student SET examNum = 1 ,examId = COUNT (examNum) ,
+        examDate = "2017-11-5" WHERE  id = #{id};
+    </select>
+
+    <select id="update_S" parameterType="com.domain.student" >
+        update teacher SET password = #{password} WHERE  id = #{id};
+    </select>
+</mapper>

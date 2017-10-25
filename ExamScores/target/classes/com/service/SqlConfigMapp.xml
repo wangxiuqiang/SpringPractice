@@ -24,5 +24,6 @@
         2, 1的前提是必须遵循mapper开发的规范 -->
         <mapper class="com.service.adminService"/>
         <mapper class="com.service.teacherService"/>
+        <mapper class="com.service.studentService"/>
     </mappers>
 </configuration>

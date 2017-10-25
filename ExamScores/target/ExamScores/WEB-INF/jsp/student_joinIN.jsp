@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: wangxiuqiang
@@ -11,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Startup Framework Inspired Pricing Table</title>
+    <title>欢迎登录</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
@@ -44,19 +45,26 @@
                     <div class="pricing-table">
                         <div class="pricing-header">
                             <p class="pricing-title">student</p>
-
+                            <p>欢迎学生
+                                <c:if test="${id == nill}">
+                                      ${joinTs.id}
+                                </c:if>
+                                <c:if test="${id != nill}">
+                                ${id}
+                                </c:if>
+                            </p>
                             <table cellpadding="5">
                                 <tr>&nbsp;</tr>
                                 <tr>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="manLogin.html" target="_blank">
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_scoreSelect/${joinTs.id}" >
                                         <input type="submit" name="submit2" value="查询成绩" maxlength="8" size="20"/>
                                     </a></td>
 
 
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="stuLogin.html" target="_blank">
-                                        <input type="submit" name="submit3" value="报考流程" maxlength="8" size="20"/>
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_exam" >
+                                        <input type="submit" name="submit3" value="考试报名" maxlength="8" size="20"/>
                                     </a></td>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="regist.html" target="_blank">
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_changePasswd" >
                                         <input type="submit" name="submit" value="更改密码" maxlength="8" size="20"/>
                                     </a></td>
 

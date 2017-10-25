@@ -7,17 +7,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Startup Framework Inspired Pricing Table</title>
+    <title>学生更改密码</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
 
 </head>
 
@@ -40,43 +41,42 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                    <div class="pricing-table">
-                        <div class="pricing-header">
-                            <p class="pricing-title">学生更改密码</p>
+                <form:form commandName="stu" htmlEscape="true" method="post" action="${pageContext.request.contextPath}/student_changePasswdSuccess">
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="pricing-table">
+                            <div class="pricing-header">
+                                <p class="pricing-title">学生更改密码</p>
+                                <table cellpadding="5">
+                                    <tr>&nbsp;</tr>
+                                    <tr>
+                                        <td>编号:</td>
+                                        <td><form:input path="id" maxlength="8" size="16"/></td>
+                                    </tr>
 
-                            <table cellpadding="5">
-                                <tr>&nbsp;</tr>
-                                <tr>
-                                    <td>用户名:</td>
-                                    <td><input name="mingzi" type="text" maxlength="8" size="20"/></td>
-                                </tr>
-                                <tr>
-                                    <td>原密码:</td>
-                                    <td><input name="mima" type="password" maxlength="8" size="20"/></td>
-                                </tr>
-                                <tr>
-                                    <td>新密码:</td>
-                                    <td><input name="mima" type="password" maxlength="8" size="20"/></td>
-                                </tr>
-                                <tr>
-                                    <td>确认密码:</td>
-                                    <td><input name="mima" type="password" maxlength="8" size="20"/></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td colspan="2" align="center"><a href="log on.html" target="_blank">
-                                        <input type="submit" name="submit3" value="确认" maxlength="8" size="20"/>
-                                    </a>&nbsp;
-                                        <a href="log on.html" target="_blank"><input type="submit" name="submit2" value="重置" /></a>                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                </tr>
-                            </table>
+                                    <tr>
+                                        <td>新密码:</td>
+                                        <td><form:password path="password" maxlength="8" size="16"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>确认密码:</td>
+                                        <td><form:password path="name" maxlength="8" size="16"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>   <input type="submit" name="submit3" value="确认" maxlength="8" size="20"/></td>
+                                        <td colspan="2" align="center">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                            <input type="submit" name="submit2" value="重置" />
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+
 
                         </div>
-
-
                     </div>
-                </div>
+                </form:form>
 
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="pricing-table">

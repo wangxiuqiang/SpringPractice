@@ -43,20 +43,20 @@
                             <table cellpadding="5">
                                 <tr>&nbsp;</tr>
                                 <tr>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/teacher_allSelectStu" target="_blank">
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/teacher_allSelectStu" >
                                         <input type="submit"  value="录入成绩" size="16"/>
                                     </a>
                                     </td>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" target="_blank">
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" >
                                         <input type="submit"  value="补考名单"  size="16"/>
                                     </a></td>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" target="_blank">
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/teacher_allSelectStu">
                                         <input type="submit"  value="查询学生信息" size="16"/>
                                     </a></td>
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/teacher_changePasswd" target="_blank">
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/teacher_changePasswd" >
 
                                         <input type="submit"  value="更改密码"  size="16"/>
                                     </a>

@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Startup Framework Inspired Pricing Table</title>
+    <title>教师更改密码</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <form:form commandName="teacher" htmlEscape="true" method="post" action="teacher_changePasswdSuccess">
+                <form:form commandName="teacher" htmlEscape="true" method="post" action="${pageContext.request.contextPath}/teacher_changePasswdSuccess">
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="pricing-table">
                         <div class="pricing-header">

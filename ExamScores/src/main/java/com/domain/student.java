@@ -9,10 +9,19 @@ public class student {
     private String className;
     private int classId;
     private String password;
-    private String date;
+    private String examDate;
     private float groud;
     private int examId;
     private int examIdNum;
+    private String lesson;
+
+    public String getLesson() {
+        return lesson;
+    }
+
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
+    }
 
     public String getName() {
         return name;
@@ -54,12 +63,12 @@ public class student {
         this.password = password;
     }
 
-    public String getDate() {
-        return date;
+    public String getExamDate() {
+        return examDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setExamDate(String examDate) {
+        this.examDate = examDate;
     }
 
     public float getGroud() {
