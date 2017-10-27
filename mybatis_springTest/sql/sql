@@ -1,0 +1,8 @@
+create database test;
+
+
+ create table movies(
+id int primary key NOT NULL ,
+name varchar(30) NOT NULL );
+
+insert movies(id,name) values(1,"查找成功");
