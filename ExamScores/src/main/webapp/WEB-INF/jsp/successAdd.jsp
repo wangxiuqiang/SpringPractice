@@ -12,7 +12,7 @@
 添加信息成功 , 添加的信息为${flag}
 老师信息为 ${teacher.name}
 ${teacher.id}
-${teacher.zpassword}
+${teacher.password}
 
 </body>
 </html>

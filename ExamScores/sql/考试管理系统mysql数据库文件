@@ -24,7 +24,7 @@ CREATE TABLE student(
 id int PRIMARY KEY NOT NULL,
 name char(20) NOT NULL,
 password varchar(20)  NOT NULL,
-class int  NOT NULL,
+className int  NOT NULL,
 classId int NOT NULL,
 groud float  ,
 examId int ,
@@ -32,16 +32,16 @@ examIdNum int ,
 examDate varchar(20) 
  );
 
-    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
-    values(1,'1',1501,1501,0,0,0,'5');
-    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
-    values(2,'2',1501,1501,0,0,0,'5');
-    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
-    values(3,'3',1501,1501,0,0,0,'5');
-    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
-    values(4,'4',1501,1501,0,0,0,'5');
-    insert into student(id,password,class,classId,groud,examId,examIdNum,examDate)
-    values(5,'5',1501,1501,0,0,0,'5');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(1,'1',1501,1501,0,0,0,'5','1');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(2,'2',1501,1501,0,0,0,'5','2');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(3,'3',1501,1501,0,0,0,'5','3');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(4,'4',1501,1501,0,0,0,'5','4');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(5,'5',1501,1501,0,0,0,'5','5');
 
 /**
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css"/>

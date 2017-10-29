@@ -47,7 +47,7 @@
 
         <div class="send-button w3layouts agileits">
 
-           <a href="${pageContext.request.contextPath}/WEB-INF/jsp/student_joinIN.jsp"> <input type="submit" value="报考"  />
+           <a href=""> <input type="submit" value="返回"  />
            </a>
 
         </div>

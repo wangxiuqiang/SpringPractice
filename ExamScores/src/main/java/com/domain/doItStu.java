@@ -20,11 +20,11 @@ public class doItStu {
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
 
-    public void writeInfoExam(int id) throws Exception {
+    public void writeInfoExam(student student) throws Exception {
         SetUp();
         SqlSession sqlSession = sqlSessionFactory.openSession();
         studentService studentService = sqlSession.getMapper(com.service.studentService.class);
-        studentService.writeInfoExam(id);
+        studentService.writeInfoExam(student);
         sqlSession.commit();
     }
 

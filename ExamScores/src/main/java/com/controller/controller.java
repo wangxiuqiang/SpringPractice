@@ -380,7 +380,7 @@ public class controller {
      */
     @RequestMapping("/student_examSuccess/{id}")
     public String student_examSuccess(@PathVariable int id, student student,Model model) throws Exception{
-        doItStu.writeInfoExam(id);
+        doItStu.writeInfoExam(student);
         student student1 = doItTea.queryOneStu(id);
         model.addAttribute("stu", student1);
         return "student_examSuccess";
@@ -414,4 +414,6 @@ public class controller {
     public String student_backJoinIN() {
         return "student_joinIN";
     }
+
+
 }

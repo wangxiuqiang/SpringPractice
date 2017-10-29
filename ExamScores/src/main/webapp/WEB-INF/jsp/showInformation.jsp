@@ -108,7 +108,7 @@
                     <c:out value="${student.name}"/>
                 </td>
                 <td width="100px">
-                    <c:out value="${student.score}"/>
+                    <c:out value="${student.groud}"/>
                 </td>
                 <td width="100px">
                     <c:out value="${student.className}"/>
