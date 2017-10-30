@@ -5,7 +5,7 @@
 <mapper namespace="com.service.teacherService">
     <!--查询单个的学生进行-->
     <select id="queryOneStu" parameterType="int" resultType="student">
-        select name,id,className,name,groud from student WHERE id = #{id}
+        select * from student WHERE id = #{id}
     </select>
 
     <!--老师改密码-->

@@ -47,7 +47,7 @@
                                         <input type="submit"  value="录入成绩" size="16"/>
                                     </a>
                                     </td>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" >
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/query_notPass" >
                                         <input type="submit"  value="补考名单"  size="16"/>
                                     </a></td>
                                     <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/teacher_allSelectStu">

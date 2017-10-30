@@ -26,6 +26,7 @@ public class doItStu {
         studentService studentService = sqlSession.getMapper(com.service.studentService.class);
         studentService.writeInfoExam(student);
         sqlSession.commit();
+        sqlSession.close();
     }
 
     /**
@@ -40,5 +41,17 @@ public class doItStu {
        studentService.update_S(student);
         sqlSession.commit();
         sqlSession.close();
+    }
+
+    /**
+     * 查一下是不是报考过了
+     */
+    public String queryDate(int id) throws Exception {
+        SetUp();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        studentService studentService = sqlSession.getMapper(com.service.studentService.class);
+       String date = studentService.queryDate(id);
+        sqlSession.close();
+        return date;
     }
 }

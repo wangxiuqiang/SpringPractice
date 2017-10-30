@@ -31,7 +31,7 @@
         INSERT teacher(id,name,password) values(#{id},#{name},#{password});
     </insert>
     <insert id="insertS" parameterType="com.domain.student">
-        INSERT student(id,name,password,className,classId) values(#{id},#{name},#{password},#{className},#{classId})
+        INSERT student(id,name,password,className,classId,examIdNum) values(#{id},#{name},#{password},#{className},#{classId},0)
     </insert>
 
     <!--删除单个的信息-->

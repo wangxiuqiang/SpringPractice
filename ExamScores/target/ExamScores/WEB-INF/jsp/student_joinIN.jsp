@@ -56,23 +56,23 @@
                             <table cellpadding="5">
                                 <tr>&nbsp;</tr>
                                 <tr>
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_scoreSelect/${joinTs.id}" >
-                                        <input type="submit" name="submit2" value="查询成绩" maxlength="8" size="20"/>
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="${pageContext.request.contextPath}/student_scoreSelect/<c:if test="${joinTs.id !=null }">${joinTs.id}</c:if>
+                                     <c:if test="${id != null}">${id} </c:if>
+                                    ">
+                                    <input type="submit" name="submit2" value="查询成绩" maxlength="8" size="20"/>
                                     </a></td>
 
 
-                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_exam" >
+                                    <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_exam/<c:if test="${joinTs.id !=null }">${joinTs.id}</c:if>
+                                     <c:if test="${id != null}">${id} </c:if>" >
                                         <input type="submit" name="submit3" value="考试报名" maxlength="8" size="20"/>
                                     </a></td>
                                     <td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/student_changePasswd" >
                                         <input type="submit" name="submit" value="更改密码" maxlength="8" size="20"/>
                                     </a></td>
-
                             </table>
-
                         </div>
-
-
                     </div>
                 </div>
 
@@ -92,6 +92,5 @@
         </div>
     </div>
 </section>
-<!-- Pricing Table Section End -->
 </body>
 </html>

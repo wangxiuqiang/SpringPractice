@@ -49,28 +49,28 @@
                                 <tr>&nbsp;</tr>
                                 <tr>
                                     <td>学号:</td>
-                                    <td><input  type="text" maxlength="8" size="20" value="${stu.id}" readonly/></td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.id}" readonly style="width: 150px"/></td>
                                 </tr>
 
                                 <tr>
                                     <td>班级:</td>
-                                    <td><input  type="text" maxlength="8" size="20" value="${stu.className}" readonly/></td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.className}" readonly style="width: 150px"/></td>
                                 </tr>
                                 <tr>
                                     <td>姓名:</td>
-                                    <td><input  type="text" maxlength="8" size="20" value="${stu.name}" readonly/></td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.name}" readonly style="width: 150px"/></td>
                                 </tr>
                                 <tr>
                                     <td>科目:</td>
-                                    <td><input type="text" maxlength="8" size="20" value="语文" readonly/></td>
+                                    <td><input type="text" maxlength="8" size="20" value="语文" readonly style="width: 150px"/></td>
                                 </tr>
                                 <tr>
                                     <td>成绩:</td>
-                                    <td><input  type="text" maxlength="8" size="20" value="${stu.groud}" readonly/></td>
+                                    <td><input  type="text" maxlength="8" size="20" value="${stu.groud}" readonly style="width: 150px"/></td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td colspan="2" align="center"><a href="${pageContext.request.contextPath}/student_backJoinIN/${stu.id}" target="_blank">
+                                    <td colspan="2" align="center"><a href="${pageContext.request.contextPath}/student_backJoinIN/${stu.id}" >
                                         <input type="submit" name="submit3" value="返回" maxlength="8" size="20"/>
                                     </a>&nbsp;
                                 </tr>

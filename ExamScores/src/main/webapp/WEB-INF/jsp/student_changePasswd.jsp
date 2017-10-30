@@ -50,23 +50,22 @@
                                     <tr>&nbsp;</tr>
                                     <tr>
                                         <td>编号:</td>
-                                        <td><form:input path="id" maxlength="8" size="16"/></td>
+                                        <td><form:input path="id" maxlength="8" size="14" cssStyle="width: 150px;"/></td>
                                     </tr>
 
                                     <tr>
                                         <td>新密码:</td>
-                                        <td><form:password path="password" maxlength="8" size="16"/></td>
+                                        <td><form:password path="password" maxlength="8" size="14" cssStyle="width: 150px;"/></td>
                                     </tr>
                                     <tr>
                                         <td>确认密码:</td>
-                                        <td><form:password path="name" maxlength="8" size="16"/></td>
+                                        <td><form:password path="name" maxlength="8" size="14" cssStyle="width: 150px;"/></td>
                                     </tr>
                                     <tr>
                                         <td>   <input type="submit" name="submit3" value="确认" maxlength="8" size="20"/></td>
                                         <td colspan="2" align="center">
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                                            <input type="submit" name="submit2" value="重置" />
+                                            <input type="reset" name="reset" value="重置" />
                                         </td>
                                     </tr>
                                 </table>

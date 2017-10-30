@@ -44,33 +44,33 @@
 
                         </div>
                     <table >
-                        <th height="3
-
-
-
-
-0px" style="font-size: 10px;">编号</th>
-                        <th height="30px" width="50px" style="font-size: 10px">姓名</th>
-                        <th height="30px" width="50px" style="font-size: 10px;">班级</th>
-                        <th height="30px" width="50px" style="font-size: 10px;">科目</th>
-                        <th height="30px" width="50px" style="font-size: 10px;">成绩</th>
-                        <th height="30px" width="50px" style="font-size: 10px;">状态</th>
+                        <th height="30px" width="70px" style="font-size: 20px; color: orange">编号</th>
+                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">姓名</th>
+                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">班级</th>
+                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">科目</th>
+                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">成绩</th>
+                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">状态</th>
                         <c:forEach items="${listStu}" var="stu" >
                             <tr>
-                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
                                         ${stu.id}</td>
-                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
                                         ${stu.name}</td>
-                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
                                         ${stu.className}</td>
-                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
                                     语文</td>
-                                <td  height="30px" width="50px" valign="center" style="color: darkred;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
                                         ${stu.groud}</td>
-                                <td><a href="${pageContext.request.contextPath}/teacher_writeScoreOne/${stu.id}">更改 </a></td>
+                                <td><a href="${pageContext.request.contextPath}/teacher_writeScoreOne/${stu.id}" style="color: red;">更改 </a></td>
 
                             </tr>
                         </c:forEach>
+                        <tr>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/backTeacher_joinIN"><input type="button" value="返回"/> </a>
+                            </td>
+                        </tr>
 
                     </table>
                     </div>

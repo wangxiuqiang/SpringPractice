@@ -37,21 +37,27 @@
 <div class="container w3layouts agileits">
 
     <h2></h2>
-    <form >
-        <input    placeholder="学生学号 :${stu.id}" id="Userame" readonly/>
-        <input    placeholder="学生姓名 :${stu.name}" id="Name" readonly/>
-        <input    placeholder="班级名称 :${stu.className}"   readonly/>
-        <input    placeholder="考试科目 :语文"   readonly/>
-        <input    placeholder="考试日期 :${stu.examDate}"   readonly/>
-        <input    placeholder="考试编号 :${stu.examId}"   readonly/>
-
+    <div style="width:100%;text-align:center">
+    <%--<form >--%>
+        <%--<input value="学生学号 :${stu.id}" id="Userame" readonly/>--%>
+        <%--<input value="学生姓名 :${stu.name}" id="Name" readonly/>--%>
+        <%--<input value="班级名称 :${stu.className}"   readonly/>--%>
+        <%--<input value="考试科目 :语文"   readonly/>--%>
+        <%--<input value="考试日期 :${stu.examDate}"   readonly/>--%>
+        <%--<input value="考试编号 :${stu.examId}"   readonly/>--%>
+       <form:form  method="post" commandName="stu" action="${pageContext.request.contextPath}/student_backJoinIN/${stu.id}">
+        <form:input path="lesson"      value="语文" id="Subject" />
+        <form:input path="id"          value="学号:${stu.id}" />
+        <form:input path="name"        value="学生姓名;${stu.name}"  />
+        <form:input path="className"   value="专业班级:${stu.className}"  />
+        <form:input path="examDate"    value="考试日期:${stu.examDate}" />
+        <form:input path="examId"      value="考试编号:${stu.examId}"  />
         <div class="send-button w3layouts agileits">
-
-           <a href=""> <input type="submit" value="返回"  />
-           </a>
-
+           <input type="submit" value="返回"  />
         </div>
-    </form>
+       </form:form>
+    <%--</form>--%>
+    </div>
 </div>
 
 

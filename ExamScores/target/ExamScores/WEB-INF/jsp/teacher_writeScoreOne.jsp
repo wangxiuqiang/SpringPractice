@@ -7,14 +7,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>jQuery Contact Form Plugin: FFForm</title>
+    <title>录入成绩</title>
     <link href="${pageContext.request.contextPath}/css/demo.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <section id="getintouch" class="fadeInRightBig animated">
     <div class="container" style="border-bottom: 0;">
         <h1>
-            <span>成绩管理系统</span>
+            <span>录入成绩</span>
         </h1>
     </div>
     <div class="container">
@@ -68,9 +68,9 @@
                 </div>
             </div>
             <div align="center">
-                <a href="">
+
                     <input type="submit"  value="确定" style="height: 40px; width: 80px;"  />
-                </a>
+
             </div>
         </form:form>
 

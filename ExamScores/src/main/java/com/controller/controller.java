@@ -47,41 +47,44 @@ public class controller {
 
 
     }
-//    @RequestMapping(value = "/tsJoin_in")
-//    public String TSJoin(Model model,  JoinTS joinTS) {
-//
-//        model.addAttribute("joinTS",joinTS);
-//        return "indexTS";
-//
-//    }
+
     /*
     flag 用来判断是学生还是老师登录 1 老师 0 学生
      */
     @RequestMapping(value = "/tsJoin_in/{flag}")
     public String WhoJoinIn(@PathVariable int flag , Model model,JoinTS joinTS) throws  Exception{
         model.addAttribute("joinTs",joinTS);
+        int flagJoin;
         if(flag == 1){
             if(joinTS == null){
-                return "failure";
+                flagJoin = 21;
+                model.addAttribute("flagJoin",flagJoin);
+                return "joinIn_failure";
             }
             else{
                 boolean tOrf = doIt.joinMessageTeacher(joinTS);
                 if (tOrf == true){
                     return "teacher_joinIn";
                 }else {
-                    return "failure";
+                    flagJoin = 22;
+                    model.addAttribute("flagJoin",flagJoin);
+                    return "joinIn_failure";
                 }
             }
         }else{
             if(joinTS == null){
-                return "failure";
+                flagJoin = 11;
+                model.addAttribute("flagJoin",flagJoin);
+                return "joinIn_failure";
             }
             else{
                 boolean tOrf = doIt.joinMessageStudent(joinTS);
                 if (tOrf == true){
                     return "student_joinIN";
                 }else {
-                    return "failure";
+                    flagJoin = 12;
+                    model.addAttribute("flagJoin",flagJoin);
+                    return "joinIn_failure";
                 }
             }
         }
@@ -93,20 +96,19 @@ public class controller {
     @RequestMapping(value = "/success_in")
     public String AdminIn(Model model, Join join) throws Exception {
         Join  joinIN  =  doIt.adminJoinInIt();
+        int flagJoin;
         if(joinIN == null ){
-            model.addAttribute("a","b");
-            model.addAttribute("admin",joinIN);
-            model.addAttribute("admin2",join);
-            return "failure";
+            flagJoin = 31;
+            model.addAttribute("flagJoin",flagJoin);
+            return "joinIn_failure";
         }else {
             if(joinIN.getName().equals(join.getName()) && joinIN.getPassword().equals(join.getPassword())){
                 return "adminIN";
             }
             else {
-                model.addAttribute("a","a");
-                model.addAttribute("admin",joinIN);
-                model.addAttribute("admin2",join);
-                return "failure";
+                flagJoin = 32;
+                model.addAttribute("flagJoin",flagJoin);
+                return "joinIn_failure";
             }
         }
     }
@@ -122,13 +124,10 @@ public class controller {
             model.addAttribute("flag" ,flag);
             return "addInformationT";
         }
-       else if(flag == 0) {
+       else {
             model.addAttribute("student",student);
             model.addAttribute("flag" ,flag);
             return "addInformationS";
-        }
-        else{
-            return "failure";
         }
     }
 
@@ -141,35 +140,26 @@ public class controller {
         redirect.addFlashAttribute("flag",flag);
         if(flag == 1) {
             if(teacher == null){
-                return "failure";
+                return "admin_addFailure";
             }
             else {
                 //执行写入函数 参数为teacher
                 doIt.insertT(teacher);
                 redirect.addFlashAttribute("teacher", teacher);
-                return "redirect:/success_add";//防止出现刷新页面再次添加的事件,用重定向
-            }
-        }else if(flag == 0){
-            //执行写入函数 , 参数发生变化 用student对象
-            if(student == null){
-                return "failure";
-            }else {
-                doIt.insertS(student);
-                redirect.addFlashAttribute("student", student);
-                return "redirect:/success_add";
+                return "redirect:/success_add/1";//防止出现刷新页面再次添加的事件,用重定向
             }
         }else {
-            return "failure";
+            //执行写入函数 , 参数发生变化 用student对象
+            if(student == null){
+                return "admin_addFailure";
+            }else {
+                doIt.insertS(student);
+                redirect.addFlashAttribute("stu", student);
+                return "redirect:/success_add/0";
+            }
         }
+    }
 
-    }
-     /*
-     添加成功页面
-      */
-    @RequestMapping(value = "/success_add")
-    public String successAdd() {
-       return "successAdd";
-    }
     /**
      * 显示学生和老师的信息,1 表示老师,0  表示学生
      */
@@ -226,17 +216,17 @@ public class controller {
             student student = doIt.queryOneStudent(key);
             model.addAttribute("student",student);
         }
-        return "success";
+        return "";
     }
 
     /*
     单个删除 学生0, 老师1的信息
      */
     @RequestMapping(value = "/delete_TS/{flag}/{id}")
-    public String delete_TS(@PathVariable int id,@PathVariable int flag) throws Exception{
-
+    public String delete_TS(@PathVariable int id,Model model,@PathVariable int flag) throws Exception{
         doIt.delete_TS(flag ,id);
-        return "success";
+        model.addAttribute("flag",flag);
+        return "adminSuccess_delete";
     }
     /**
      * 更改信息 ,单个改1老师 0学生 跳转到修改页面
@@ -257,26 +247,34 @@ public class controller {
            }
     }
     /**
-     * 更改信息 ,正式更改,跳转到成功页面
+     * 更改信息 ,正式更改,跳转到成功页面,更改完的信息和添加完的信息都返回到同一个successAdd页面
      */
     @RequestMapping(value = "/update_success/{flag}")
-    public String updateSuccess(Model model,teacher teacher,student student,@PathVariable int flag) throws  Exception{
+    public String updateSuccess(RedirectAttributes redirect,teacher teacher,student student,@PathVariable int flag) throws  Exception{
         if(flag == 1) {
            doIt.update_TS(flag ,teacher,student);
-           return "redirect:/success_add";
+            redirect.addFlashAttribute("teacher",teacher);
+           return "redirect:/success_add/1";
         }
         else{
             doIt.update_TS(flag,teacher ,student);
-            return "redirect:/success_add";
+            redirect.addFlashAttribute("stu",student);
+            return "redirect:/success_add/0";
         }
     }
 
+    /**
+    添加成功页面
+     **/
+    @RequestMapping(value = "/success_add/{flag}")
+    public String successAdd(@PathVariable int flag) {
+        if(flag == 1){
+            return "admin_successAdd_update";
+        }else{
+            return "admin_successAdd_updateS";
+        }
 
-
-
-    @Autowired
-    public   doItTea doItTea;
-
+    }
 
 //    /**
 //     * teacher 准备查询单个的学生,跳入单个学生的查询界面  取消了
@@ -295,125 +293,5 @@ public class controller {
 //       model.addAttribute("student",student);
 //        return "update_oneS";
 //    }
-
-    /**
-     * 教师更改密码,,密码更改完成,下面的两个
-     * @param model
-     * @param teacher
-     * @return
-     */
-    @RequestMapping("/teacher_changePasswd")
-    public String teacher_changePasswd(Model model , teacher teacher) {
-        model.addAttribute("teacher" ,teacher);
-        return "teacher_changePasswd";
-    }
-    @RequestMapping("/teacher_changePasswdSuccess")
-    public String teacher_changePasswdSuccess(Model model ,teacher teacher) throws Exception{
-        if(teacher.getName().equals(teacher.getPassword()) ){
-            doItTea.update_T(teacher);
-            return "redirect:/success_add";
-        }else {
-            return "failure";
-        }
-
-    }
-
-    /**
-     * 调取全部的学生信息
-     * @param model
-
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/teacher_allSelectStu")
-    public String teacher_allSelectStu(Model model ) throws Exception{
-      List<student> listStu = doItTea.queryAllStudent();
-      model.addAttribute("listStu" ,listStu);
-      return "teacher_allSelectStu";
-    }
-    /**
-     * 用来将修改成绩  ,单个修改,用来显示一个学生的信息
-     */
-     @RequestMapping("/teacher_writeScoreOne/{id}")
-    public String teacher_writeScoreOne(Model model,@PathVariable int id) throws Exception{
-         student student = doItTea.queryOneStu(id);
-         model.addAttribute("stu" ,student);
-         return "teacher_writeScoreOne";
-     }
-    /**
-     * 表单提交过来之后,进行数据库修改
-     * 添加成绩成功,之后跳转到teacher_selectAllstu,
-     */
-    @RequestMapping("/teacher_writerSuccess")
-    public String teacher_writerSuccess (student stu) throws Exception {
-        doItTea.writeScore(stu);
-        return "redirect:/teacher_allSelectStu";
-    }
-
-
-
-
-    /**
-     * 学生查询成绩的控制,  传过来的独立路径是要求的编号,直接查出来返回
-     */
-    @RequestMapping("/student_scoreSelect/{id}")
-    public String student_scoreSelect(Model model,@PathVariable int id) throws Exception{
-        student student = doItTea.queryOneStu(id);
-        model.addAttribute("stu" ,student);
-        return "student_scoreQuery";
-    }
-
-    /**
-     * 考试报名,
-     */
-    @RequestMapping(value = "/student_exam" )
-    public String student_exam(Model model, student student) {
-        model.addAttribute("stu",student);
-        return "student_exam";
-    }
-
-
-    @Autowired
-    doItStu doItStu;
-    /**
-     * 报名成功显示报名信息  ,
-     */
-    @RequestMapping("/student_examSuccess/{id}")
-    public String student_examSuccess(@PathVariable int id, student student,Model model) throws Exception{
-        doItStu.writeInfoExam(student);
-        student student1 = doItTea.queryOneStu(id);
-        model.addAttribute("stu", student1);
-        return "student_examSuccess";
-    }
-
-
-    /*
-      学生更改密码
-     */
-    @RequestMapping(value = "/student_changePasswd")
-    public String student_changePasswd(Model model,student student) throws Exception{
-        model.addAttribute("stu",student);
-        return "student_changePasswd";
-    }
-    @RequestMapping("/student_changePasswdSuccess")
-    public String student_changePasswdSuccess(Model model ,student student) throws Exception{
-        if(student.getName().equals(student.getPassword()) ){
-            doItStu.update_S(student);
-            return "redirect:/success_add";
-        }else {
-            return "failure";
-        }
-
-    }
-
-    /**
-     * 返回登录后的界面
-     * @return
-     */
-    @RequestMapping(value = "/student_backJoinIN")
-    public String student_backJoinIN() {
-        return "student_joinIN";
-    }
-
 
 }

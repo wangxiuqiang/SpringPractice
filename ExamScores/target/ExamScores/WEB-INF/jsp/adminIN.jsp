@@ -50,10 +50,10 @@
                         <table cellspacing="0" style="font-size: 20px;">
 
                             <tr >
-                                <th style="font-size: 30px; color: white;">
+                                <th style="font-size: 20px; color: white;">
                                     对老师的管理
                                 </th>
-                                <th style="font-size: 30px; color: white;">
+                                <th style="font-size: 20px; color: white;">
                                     对学生的管理
                                 </th>
                             </tr>

@@ -43,11 +43,12 @@ public class doIt {
     /**
      * 用来返回学生的全部信息的方法
      */
-    public List<student>  queryAllStudent() throws Exception{
+    public List<student> queryAllStudent() throws Exception{
         SetUp();
         SqlSession sqlSession = sqlSessionFactory.openSession();
         adminService adminService = sqlSession.getMapper(com.service.adminService.class);
         List<student> students = adminService.queryAllForStudent();
+        sqlSession.commit();
         sqlSession.close();
         return students;
     }

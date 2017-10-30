@@ -39,39 +39,7 @@
                             </ul>
                         </div>
 
-                        <form:form commandName="teacher" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/1">
 
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label for="id">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:
-                                                <form:input  path="id"  cssClass="text" />
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:
-                                                <form:input path="name" cssClass="text"/>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label for="name">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:
-                                                <form:input path="password" cssClass="text"/>
-                                            </label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="submit" value="添加" class="button"/>
-                                            <input type="reset" value="重置" class="button" />
-                                        </td>
-
-                                    </tr>
-                                </table>
-
-                        </form:form>
                     </div>
                 </div>
 
@@ -81,7 +49,39 @@
                             <p class="pricing-title">添加老师信息</p>
 
                         </div>
+                        <form:form commandName="teacher" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/1">
 
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="id">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:
+                                            <form:input  path="id"  cssClass="text" />
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名:
+                                            <form:input path="name" cssClass="text"/>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="name">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:
+                                            <form:input path="password" cssClass="text"/>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="submit" value="添加" class="button"/>
+                                        <input type="reset" value="重置" class="button" />
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </form:form>
                     </div>
                 </div>
 

@@ -35,9 +35,9 @@
 <h1>学生报考</h1>
 
 <div class="container w3layouts agileits">
-    <form:form action="${pageContext.request.contextPath}/student_examSuccess/${stu.id}" method="post" commandName="stu">
+    <form:form action="${pageContext.request.contextPath}/student_examSuccess/${id}" method="post" commandName="stu">
     <form:input path="lesson" placeholder="语文" id="Subject" />
-    <form:input path="id"   placeholder="学号" id="Userame" value=""/>
+    <form:input path="id"   placeholder="学号" id="Userame" />
     <form:input path="name" placeholder="学生姓名" id="Name" />
     <div class="send-button w3layouts agileits">
 
