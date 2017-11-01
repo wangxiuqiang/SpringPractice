@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/query.css">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                 <div class="col-md-4 col-sm-12 col-xs-12">
                     <div class="pricing-table">
                         <div class="pricing-header">
-                            <p class="pricing-title">选择学生进行成绩录入</p>
+                            <p class="pricing-title">补考名单</p>
 
                         </div>
                         <table >
@@ -53,15 +53,15 @@
                             <c:forEach items="${listStu}" var="stu" >
                                 <c:if test="${stu.groud < 60}">
                                 <tr>
-                                    <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                    <td  height="30px" width="70px" valign="center" style="color: white;font-size: 20px;">
                                             ${stu.id}</td>
-                                    <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                    <td  height="30px" width="70px" valign="center" style="color: white;font-size: 20px;">
                                             ${stu.name}</td>
-                                    <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                    <td  height="30px" width="70px" valign="center" style="color: white;font-size: 20px;">
                                             ${stu.className}</td>
-                                    <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                    <td  height="30px" width="70px" valign="center" style="color: white;font-size: 20px;">
                                         语文</td>
-                                    <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                    <td  height="30px" width="70px" valign="center" style="color: white;font-size: 20px;">
                                             ${stu.groud}</td>
                                     <td><a href="${pageContext.request.contextPath}/teacher_writeScoreOne/${stu.id}" style="color: red;">更改 </a></td>
                                 </tr>

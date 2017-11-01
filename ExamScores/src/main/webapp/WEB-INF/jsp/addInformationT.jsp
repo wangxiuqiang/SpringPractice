@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/query.css">
 </head>
 
 <body>
@@ -51,7 +51,7 @@
                         </div>
                         <form:form commandName="teacher" method="post" action="${pageContext.request.contextPath}/addSubmit_Information/1">
 
-                            <table>
+                            <table  style="color:  white;">
                                 <tr>
                                     <td>
                                         <label for="id">编&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:

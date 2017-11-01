@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/query.css">
 
 </head>
 
@@ -45,7 +45,7 @@
                         <div class="pricing-header">
                             <p class="pricing-title">学生成绩查询</p>
 
-                            <table cellpadding="5">
+                            <table cellpadding="5" style="color: white">
                                 <tr>&nbsp;</tr>
                                 <tr>
                                     <td>学号:</td>

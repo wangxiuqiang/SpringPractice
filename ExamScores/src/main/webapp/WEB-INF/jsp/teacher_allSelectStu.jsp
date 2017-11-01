@@ -14,7 +14,7 @@
             <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
             <!-- Main Style -->
-            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/query.css">
         </head>
 
 <body>
@@ -43,24 +43,24 @@
                             <p class="pricing-title">选择学生进行成绩录入</p>
 
                         </div>
-                    <table >
-                        <th height="30px" width="70px" style="font-size: 20px; color: orange">编号</th>
-                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">姓名</th>
-                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">班级</th>
-                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">科目</th>
-                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">成绩</th>
-                        <th height="30px" width="70px" style="font-size: 20px; color: orange;">状态</th>
+                    <table style="color: white;">
+                        <th height="30px" width="70px" style="font-size: 20px; ">编号</th>
+                        <th height="30px" width="70px" style="font-size: 20px; ">姓名</th>
+                        <th height="30px" width="70px" style="font-size: 20px; ">班级</th>
+                        <th height="30px" width="70px" style="font-size: 20px; ">科目</th>
+                        <th height="30px" width="70px" style="font-size: 20px; ">成绩</th>
+                        <th height="30px" width="70px" style="font-size: 20px; ">状态</th>
                         <c:forEach items="${listStu}" var="stu" >
                             <tr>
-                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="font-size: 20px;">
                                         ${stu.id}</td>
-                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="font-size: 20px;">
                                         ${stu.name}</td>
-                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="font-size: 20px;">
                                         ${stu.className}</td>
-                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="font-size: 20px;">
                                     语文</td>
-                                <td  height="30px" width="70px" valign="center" style="color: blue;font-size: 20px;">
+                                <td  height="30px" width="70px" valign="center" style="font-size: 20px;">
                                         ${stu.groud}</td>
                                 <td><a href="${pageContext.request.contextPath}/teacher_writeScoreOne/${stu.id}" style="color: red;">更改 </a></td>
 

@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mainTea.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/query.css">
 </head>
 
 <body>
@@ -50,10 +50,10 @@
                         <table cellspacing="0" style="font-size: 20px;">
 
                             <tr >
-                                <th style="font-size: 20px; color: white;">
+                                <th style="font-size: 18px; color: white;">
                                     对老师的管理
                                 </th>
-                                <th style="font-size: 20px; color: white;">
+                                <th style="font-size: 18px; color: white; " align="center">
                                     对学生的管理
                                 </th>
                             </tr>
