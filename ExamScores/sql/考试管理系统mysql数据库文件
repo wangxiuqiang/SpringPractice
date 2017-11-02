@@ -43,6 +43,16 @@ examDate varchar(20)
     insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
     values(5,'5',1501,1501,0,0,0,'5','5');
 
+
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(6,'6',1501,1501,0,0,0,'5','6');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+     values(7,'7',1501,1501,0,0,0,'5','7');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(8,'8',1501,1501,0,0,0,'5','8');
+    insert into student(id,password,className,classId,groud,examId,examIdNum,examDate,name)
+    values(9,'9',1501,1501,0,0,0,'5','9');
+
 /**
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css" type="text/css"/>
     <div class="header">插个图片</div>
