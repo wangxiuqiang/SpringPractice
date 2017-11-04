@@ -19,4 +19,11 @@ public class controller {
         return "index";
     }
 
+//    @RequestMapping( value = "/query" )
+//    public String query(Model model) throws Exception{
+//        String name = implClass.selectName();
+//        model.addAttribute("name" ,name);
+//        return "index";
+//    }
+
 }
