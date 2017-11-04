@@ -177,7 +177,7 @@
         <include>**/*.xml</include>
         <include>**/*.tld</include>
       </includes>
-      <filtering>false</filtering>
+      <filtering>true</filtering>
     </resource>
     <resource>
       <directory>src/main/java</directory>
@@ -186,7 +186,7 @@
         <include>**/*.xml</include>
         <include>**/*.tld</include>
       </includes>
-      <filtering>false</filtering>
+      <filtering>true</filtering>
     </resource>
   </resources>
   </build>

@@ -10,5 +10,6 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="service" class="cn.itcast.ssm.service.impl.moviesImplClass"/>
+    <context:component-scan base-package="cn.itcast.ssm.service.impl" />
+
 </beans>

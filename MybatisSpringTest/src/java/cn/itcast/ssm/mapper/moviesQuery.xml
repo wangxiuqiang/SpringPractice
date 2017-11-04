@@ -3,6 +3,6 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.itcast.ssm.mapper.moviesQuery">
     <select id="queryInfo" resultType="String">
-        select * from movies where id = 1;
+        select name from movies where id = 1;
     </select>
 </mapper>
