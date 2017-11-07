@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class controller {
+
     @Autowired
     public moviesImplClass implClass;
 
@@ -18,12 +19,12 @@ public class controller {
         model.addAttribute("name" ,name);
         return "index";
     }
+    @RequestMapping( value = "/query" )
+    public String queryTwo(Model model) throws Exception{
+        String name = implClass.selectName();
+        model.addAttribute("name" ,name);
+        return "query";
+    }
 
-//    @RequestMapping( value = "/query" )
-//    public String query(Model model) throws Exception{
-//        String name = implClass.selectName();
-//        model.addAttribute("name" ,name);
-//        return "index";
-//    }
 
 }

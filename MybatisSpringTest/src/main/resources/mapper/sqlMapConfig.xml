@@ -6,4 +6,5 @@
     <typeAliases>
         <package name="cn.itcast.ssm.po" />
     </typeAliases>
+
 </configuration>

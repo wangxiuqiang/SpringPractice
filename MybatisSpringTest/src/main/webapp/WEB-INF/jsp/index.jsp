@@ -12,6 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-${name}
+<a href="${pageContext.request.contextPath}/query"> ${name}</a>
 </body>
 </html>

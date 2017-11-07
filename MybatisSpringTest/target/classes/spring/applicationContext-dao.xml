@@ -30,7 +30,7 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
     <!--自动扫描mapper创建代理对象并注册到spring容器-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <property name="basePackage" value="cn.itcast.ssm.mapper"/>
     </bean>
