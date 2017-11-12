@@ -1,0 +1,8 @@
+cn/ssm/controller/controller.class
+cn/ssm/service/impl/TestServiceImpl4Sina.class
+cn/ssm/service/queryService.class
+cn/ssm/po/movies.class
+cn/ssm/service/impl/TestServiceImpl.class
+cn/ssm/service/impl/TestServiceImpl4QQ.class
+cn/ssm/service/TestService.class
+cn/ssm/dao/mapperQuery.class

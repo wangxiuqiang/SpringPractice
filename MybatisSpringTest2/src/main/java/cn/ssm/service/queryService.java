@@ -1,6 +1,6 @@
 package cn.ssm.service;
 
-import cn.ssm.mapper.mapperQuery;
+import cn.ssm.dao.mapperQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
