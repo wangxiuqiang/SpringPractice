@@ -24,7 +24,7 @@
                  <value>classpath:TestValidationMessage</value>
              </list>
          </property>
-        <property name="fileEncodings" value="utf-8"/>
+        <property name="defaultEncoding" value="utf-8"/>
         <property name="cacheSeconds" value="120"/>
     </bean>
 </beans>
