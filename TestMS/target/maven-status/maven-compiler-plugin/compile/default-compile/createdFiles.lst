@@ -1,0 +1,5 @@
+cn/ssm/service/impl/MoviesQueryImpl.class
+cn/ssm/service/MoviesQuery.class
+cn/ssm/controller/controller.class
+cn/ssm/dao/Query.class
+cn/ssm/cn/ssm/po/Movies.class
