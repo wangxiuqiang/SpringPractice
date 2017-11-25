@@ -8,11 +8,24 @@ public class AutowiredTest {
 
     public SgtPeppers sgtPeppers;
 
+//    @Autowired
+//    public AutowiredTest(SgtPeppers sgtPeppers)
+//    {
+//        this.sgtPeppers = sgtPeppers;
+//    }
+
+
+//    public SgtPeppers getSgtPeppers() {
+//        return sgtPeppers;
+//    }
+//
+//    @Autowired
+//    public void setSgtPeppers(SgtPeppers sgtPeppers) {
+//        this.sgtPeppers = sgtPeppers;
+//    }
+
     @Autowired
-    public AutowiredTest(SgtPeppers sgtPeppers)
-    {
+    public void TestOneRandomSimple(SgtPeppers sgtPeppers) {
         this.sgtPeppers = sgtPeppers;
     }
-
-
 }

@@ -23,10 +23,10 @@ public class TestCDPlayer {
 //   }
 //
    @Autowired
-    AutowiredTest autowiredTest;
+    AutowiredTest b;
 
    @Test
     public void SimplePoTestAutowiredTest(){
-        autowiredTest.sgtPeppers.paly();
+       b.sgtPeppers.paly();
    }
 }
