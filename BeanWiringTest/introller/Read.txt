@@ -1,0 +1,4 @@
+itcast 包中的是对java配置类的练习，包括 组件扫描和 显示配置,
+
+allInner包中的是对Java配置和xml配置的混合显示配置
+xml  的加载出现问题

@@ -17,7 +17,7 @@ public class TestCDPlayer {
 //   @Autowired
 //   private CDPlayer a;
 //
-//   @Test
+//   @test
 //    public  void cdPlayerNotIsNull(){
 //      a.paly();
 //   }
