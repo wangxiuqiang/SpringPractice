@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 /**
  * 更高一级的配置类,用来加载另外的类和xml
  */
-@Configuration
+//@Configuration   //用来表示这是一个java配置类
 //@Import({test1Config.class,test2Config.class})  //用来加载两个java配置类
 
 //加载xml和Java配置类

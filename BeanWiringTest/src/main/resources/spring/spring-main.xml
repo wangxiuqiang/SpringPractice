@@ -7,6 +7,11 @@
        xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context">
+    <!--用来将两个配置文件进行配置-->
+    <!--<import resource="spring-test1.xml" />-->
+    <!--<import resource="spring-test2.xml" />-->
+
+<!--用来xml 和 java配置类来结合-->
+    <bean class="cn.allInner.Config.test2Config" />
     <import resource="spring-test1.xml" />
-    <import resource="spring-test2.xml" />
 </beans>

@@ -8,6 +8,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context">
 
-<bean id="dogTwo" class="cn.allInner.pojo.Impl.DogTwo" />
+<!--<bean id="dogTwo" class="cn.allInner.pojo.Impl.DogTwo" />-->
 
 </beans>
