@@ -1,0 +1,20 @@
+create database company;
+use company;
+create table admin (
+name varchar(20)  primary key,
+password varchar(20)
+);
+
+insert into admin (name, password) values ("admin","admin");
+
+create table department (
+id int  primary key,
+name varchar(20)
+);
+
+create table staff(
+id int  primary key ,
+name varchar(20) ,
+tel varchar(20) ,
+money varchar(10)
+);
