@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TestJavaConfig:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TestJavaConfig.war">
+      <element id="artifact" artifact-name="TestJavaConfig:war exploded" />
+    </root>
+  </artifact>
+</component>
