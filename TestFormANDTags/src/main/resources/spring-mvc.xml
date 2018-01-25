@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p">
+
+
+
+    <!--扫描controller类的包-->
+
+
+    <context:component-scan base-package="cn.controller"/>
+
+    <!--开启适配器 映射器-->
+  <mvc:annotation-driven  validator="validation" />
+
+
+
+    <!-- 视图解析器-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="viewResolver" p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp"
+          p:viewClass="org.springframework.web.servlet.view.JstlView"/>
+
+
+
+    <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" id="validation">
+    <!--校验器-->
+    <property value="org.hibernate.validator.HibernateValidator" name="providerClass"/>
+    <property name="validationMessageSource" ref="messageSource"/>
+
+</bean>
+
+<bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource">
+<property name="basenames">
+    <list>
+        <value>classpath:validation</value>
+    </list>
+</property>
+<property value="utf-8" name="defaultEncoding"/>
+<!--资源文件120读取一次-->
+<property value="120" name="cacheSeconds"/>
+</bean>
+
+</beans>
