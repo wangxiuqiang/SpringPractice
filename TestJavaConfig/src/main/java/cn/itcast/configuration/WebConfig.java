@@ -2,6 +2,7 @@ package cn.itcast.configuration;
 
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ViewResolver;
@@ -12,7 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc  //启用springmvc  和 xml的mvc：annotation-driven 一样
-@Component("cn.itcast.controller") // 组建扫描
+@ComponentScan("cn.itcast.controller") // 组建扫描
 public class WebConfig  extends WebMvcConfigurerAdapter{
     @Bean
     public ViewResolver viewResolver(){

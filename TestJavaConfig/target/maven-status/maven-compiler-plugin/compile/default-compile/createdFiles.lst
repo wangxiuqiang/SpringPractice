@@ -1,0 +1,5 @@
+cn\itcast\configuration\WebConfig.class
+cn\itcast\MainTest\Main.class
+cn\itcast\controller\TestController.class
+cn\itcast\configuration\RootConfig.class
+cn\itcast\configuration\SpittrWebAppInitializer.class

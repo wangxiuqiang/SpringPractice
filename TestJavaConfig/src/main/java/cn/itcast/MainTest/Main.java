@@ -17,7 +17,7 @@ public class Main {
     TestController controller = new TestController();
     MockMvc mockMvc =
             standaloneSetup(controller).build();
-    mockMvc.perform(get("/homeIndex")).andExpect(view().name("home"));
+    mockMvc.perform(get("/login")).andExpect(view().name("home"));
   }
 
 }

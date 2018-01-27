@@ -15,7 +15,7 @@ public class SpittrWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 
     /**
      * RootConfig      ContextLoaderListener  ,DispatcherServlet 启用时同时创建，
-     * 用来配置骐达的应用上下文的bean
+     * 用来配置应用上下文的bean
      * @return
      */
     @Override

@@ -11,4 +11,9 @@ public class TestController {
     public String homeIndex() {
         return "home";
     }
+
+    @RequestMapping(value = "/login")
+    public String index() {
+        return "home";
+    }
 }
