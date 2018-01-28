@@ -16,6 +16,13 @@ public class Filecontroller {
         return "index";
     }
 
+    /**
+     * 使用  @RequestPart 将表单中的name为pic的传过来,以数组的形式放在
+     * multipartFile参数中
+     * @param model
+     * @param multipartFile
+     * @return
+     */
     @RequestMapping("/picture")
     public String picture(Model model, @RequestPart("pic") MultipartFile[] multipartFile){
         try {
