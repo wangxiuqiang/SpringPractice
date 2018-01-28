@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 
 public class validationTest {
 
-    @Size(min=3,max = 10,groups = {test1.class},message = "{}")
+    @Size(min=3,max = 10,groups = {test1.class},message = "{a.length.error}")
     private String testName;
 
     @NotNull( message="{a.context.NotNull}",groups = {test2.class})
