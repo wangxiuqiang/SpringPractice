@@ -1,0 +1,36 @@
+.header {
+    height: 200px;
+    background-image: url(../images/computerExamScoresManagementSystemHead.png);
+    width: 1366px;
+}
+
+
+.footer {
+    margin-left: 200px;
+    height: 200px;
+    width: 800px;
+    background-image: url(../images/computerExamScoresManagementSystemFoot.png);
+}
+
+.update_delete {
+    color: red;
+}
+
+.middle {
+    margin-left: 300px;
+    width: 500px;
+    background-color: rgba(192 ,192 ,192 ,0.6);
+}
+.daohang {
+    border: 2px solid black;
+    background-color: cadetblue;
+    width: 870px;
+    margin-left: 300px;
+}
+
+.daohang a{
+    text-decoration: none;
+}
+.daohang a:hover {
+    color: crimson;
+}

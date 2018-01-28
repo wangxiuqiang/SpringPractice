@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.header {
+    height: 200px;
+    background-image: url(../images/computerExamScoresManagementSystemHead.png);
+    width: 1366px;
+}
+
+
+.footer {
+    margin-left: 200px;
+    height: 200px;
+    width: 800px;
+    background-image: url(../images/computerExamScoresManagementSystemFoot.png);
+}
+
+.middle {
+    margin: 20px 380px;
+    width: 300px;
+    height:400px;
+
+}
+
+
+a {
+    color:  skyblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
+
+td {
+    border: solid  red;
+
+}
+
+th {
+    border: solid  red;
+}
+table {
+
+    width: 500px;
+    height: 300px;
+    border-collapse: collapse;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.teacherService">
+    <!--查询单个的学生进行-->
+    <select id="queryOneStu" parameterType="int" resultType="student">
+        select * from student WHERE id = #{id}
+    </select>
+
+    <!--老师改密码-->
+    <select id="update_T" parameterType="com.domain.teacher" >
+        update teacher SET password = #{password} WHERE  id = #{id};
+    </select>
+    <!--更改学生的成绩-->
+    <select id="writeScore" parameterType="com.domain.student" >
+        update student SET groud= #{groud} WHERE  id = #{id};
+    </select>
+
+</mapper>
