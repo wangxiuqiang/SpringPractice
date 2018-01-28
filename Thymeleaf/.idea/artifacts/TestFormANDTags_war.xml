@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TestFormANDTags:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TestFormANDTags.war">
+      <element id="artifact" artifact-name="TestFormANDTags:war exploded" />
+    </root>
+  </artifact>
+</component>
