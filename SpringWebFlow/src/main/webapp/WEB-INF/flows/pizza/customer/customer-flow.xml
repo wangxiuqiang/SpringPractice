@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+<var name="customer" class="com.pojo.Customer"/>
+    <view-state id="welcome">
+        <transition on="phoneEntered" to="lookupCustomer"/>
+    </view-state>
+    <action-state id="lookupCustomer">
+        <evaluate  expression="customer.phone = requestParameters.phone"/>
+        <transition to="show"/>
+    </action-state>
+    <view-state id="show" view="/WEB-INF/jsp/show.jsp"/>
+    <end-state id="cancel" />
+</flow>

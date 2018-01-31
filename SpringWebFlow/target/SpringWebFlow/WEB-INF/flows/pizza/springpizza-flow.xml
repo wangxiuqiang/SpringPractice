@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+    <var name="order" class="com.pojo.Order"/>
+    <subflow-state id="identifyCustom" subflow="pizza/customer">
+        <!--output将子流程返回的customer  赋值到order.customer-->
+        <output name="customer" value="order.customer"/>
+    </subflow-state>
+    <end-state id="cancel"/>
+</flow>

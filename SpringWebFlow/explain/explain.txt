@@ -1,0 +1,24 @@
+解释说明
+
+
+1.webflow  在spring的配置文件中 的xsi:schemaLocation中的URL比如是偶数,flow的
+URL的写法为:
+http://www.springframework.org/schema/webflow-config
+http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd
+同时,在bean中要加
+xmlns:flow="http://www.springframework.org/schema/webflow-config"
+
+2.flow的xml中头的写法为:
+<?xml version="1.0" encoding="utf-8" ?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+注:在上面的最后一行,使用过2.3 但是在互联网中找不到这个文档,所以改为2.0
+
+3.在某一个flow.xml页面中,加上结束状态
+
+4.view-state 中如果只有id那么试图的名字和id名一样,如果没有view页面必须和xml在同一
+文件夹下,加上view属性可以把页面放在其他的位置,格式:view="/WEB-INF/jsp/show.jsp"
+.jsp后缀必须加 ,只要有view 就必须加上后缀
