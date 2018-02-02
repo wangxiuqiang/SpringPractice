@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class TestController {
 
-    @RequestMapping("/welcome")
+    @RequestMapping("/")
     public String login(){
         return "Index";
     }
@@ -23,12 +23,4 @@ public class TestController {
         return "Index";
     }
 
-    @RequestMapping("/login")
-    public String Login(@RequestParam(value = "error",required = false) String error ) {
-        if (error != null) {
-            return "failure";
-        }else{
-            return "Index";
-        }
-    }
 }

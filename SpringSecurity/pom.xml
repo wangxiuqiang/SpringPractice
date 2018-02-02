@@ -34,6 +34,13 @@
     </dependency>
 
     <!--spring的核心包-->
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-expression</artifactId>
@@ -159,6 +166,13 @@
       <version>1.1.2</version>
     </dependency>
 
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+
+
     <!--统一日志jar-->
     <dependency>
       <groupId>commons-logging</groupId>
@@ -231,12 +245,12 @@
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-config</artifactId>
-      <version>3.2.1.RELEASE</version>
+      <version>4.0.0.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-core</artifactId>
-      <version>4.0.3.RELEASE</version>
+      <version>4.0.0.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.security</groupId>

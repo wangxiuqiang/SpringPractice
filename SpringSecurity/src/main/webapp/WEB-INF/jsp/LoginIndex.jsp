@@ -12,7 +12,7 @@
     <title>login</title>
 </head>
 <body>
-<form action="/index" method="post" >
+<form action="/test" method="post" >
     <table>
         <tr>
             <td>
@@ -26,10 +26,24 @@
         </tr>
         <tr>
             <td>
+                <input type="checkbox" name="remember-me"/>
+                记住我
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <input type="submit" value="login"  />
             </td>
         </tr>
     </table>
 </form>
 </body>
-</html>
+<%--</html>--%>
+<%--<html><head><title>Login Page</title></head><body onload='document.f.username.focus();'>--%>
+<%--<h3>Login with Username and Password</h3><form name='f' action='/test' method='POST'>--%>
+    <%--<table>--%>
+        <%--<tr><td>User:</td><td><input type='text' name='username' value=''></td></tr>--%>
+        <%--<tr><td>Password:</td><td><input type='password' name='password'/></td></tr>--%>
+        <%--<tr><td colspan='2'><input name="submit" type="submit" value="Login"/></td></tr>--%>
+    <%--</table>--%>
+<%--</form></body></html>--%>

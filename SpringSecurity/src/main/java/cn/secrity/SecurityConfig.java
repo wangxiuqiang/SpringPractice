@@ -27,14 +27,37 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication().withUser("admin").password("admin").roles("USER","ADMIN")
                 .and().withUser("user").password("user").roles("USER");
     }
+//loginPage设定哪一个url下的界面是进行权限检测的界面
+    //.authorizeRequests().antMatchers  表明要跳转到这个url的页面,必须要达到要求才可以跳过去
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/login")
+        http.formLogin().loginPage("/test")  //这个test的url对应的表单中的action需要是test,其实不管是啥,都跳到 "/"
+                //它会跳转到 "/"这个url上,其余的都不成功,可能是没找到合适的方法
          .and()
-                .authorizeRequests().antMatchers(HttpMethod.POST,"/index").hasRole("USER")
+                .authorizeRequests()
+                //下面的这两个是不一样的  因为有HttpMethod.POST , 上面的能限制没有这个Role的
+                //不能登录,下面的那个不行,
+                .antMatchers("/index").hasRole("USER")
+                .antMatchers(HttpMethod.POST,"/index").hasRole("USER")
+                //其他的请求不需要权限,都可以访问
                 .anyRequest().permitAll()
+                .and()
+                //对 "/" 的访问视为需要安全通道的,并自动将请求重定向到https
+                   // .requiresChannel().antMatchers("/").requiresSecure()
+               // .and()
+                //启用rememberMe功能,时间是2419200秒,四个周 ,默认是两个周
+                //配置一个私钥 spittrKey,默认是SpringSecured
+                //需要在页面中添加个name为remember-me的checkbox
+                .rememberMe().tokenValiditySeconds(2419200).key("spittrKey")
         .and()
+                //退出,并且定义到退出成功的url
+                .logout().logoutSuccessUrl("/test")
+                //logout()函数默认让LogoutFilter的拦截是logout的url
+                //logoutUrl 重写这一默认的拦截路径
+                .logoutUrl("/signout")
+                .and()
+                //禁用csrf ,不然的话就得在jsp页面上进行hidden的配置
         .csrf()
         .disable();
     }
