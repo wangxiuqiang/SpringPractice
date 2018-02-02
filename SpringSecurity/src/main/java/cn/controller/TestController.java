@@ -22,5 +22,9 @@ public class TestController {
     public String Index() {
         return "Index";
     }
+    @RequestMapping("/failure")
+    public String failure() {
+        return "failure";
+    }
 
 }

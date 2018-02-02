@@ -16,8 +16,12 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
  *
  * and()方法用在security的方法中,将多个配置连起来,不管是用户存储,还是权限验证
  */
+
+/**
+ * 在web 5.0.1下@EnableWenMvcSecurity这个已经找不到了
+ */
 @Configuration
-@EnableWebMvcSecurity //启用任意webmvc应用的安全功能
+@EnableWebMvcSecurity  //启用任意webmvc应用的安全功能
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //inMemoryAuthentication 方法用来添加内存用户存储
     //.withUser().password().roles() 一级一级的用户名,密码,角色
@@ -40,6 +44,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //不能登录,下面的那个不行,
                 .antMatchers("/index").hasRole("USER")
                 .antMatchers(HttpMethod.POST,"/index").hasRole("USER")
+                /**
+                 *
+                 限制/failure的路径,只有是登录了,并且用户名是admin的时候才能访问,
+                 同时可以在页面上用security的jso标签限制显示内容,就可以使用
+                 sec:authorize url='/failure' 然后定义里面的内容
+                 不用使用sec:authorize access="isAuthenticated() and principal.username=='admin'"来重复定义了
+                 PS:and用来连接连两个条件,使用access可以指定多个保护URL的方法,
+                 .hasRole() .authenticated() 等方法只能写其中一个,access比这些好用,支持使用SpEL表达式
+                 */
+                 .antMatchers("/failure").access("isAuthenticated() and principal.username=='admin'")
                 //其他的请求不需要权限,都可以访问
                 .anyRequest().permitAll()
                 .and()
